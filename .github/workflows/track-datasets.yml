@@ -1,0 +1,39 @@
+name: Track Dataset Changes
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC (adjust the time as needed)
+    - cron: '0 2 * * *'
+  # Allow manual triggering from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  track-datasets:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests
+      
+      - name: Download datasets
+        run: python dataset_download.py
+      
+      - name: Track changes
+        run: python dataset_tracker.py
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update datasets and changelog - $(date +%Y-%m-%d)" && git push)

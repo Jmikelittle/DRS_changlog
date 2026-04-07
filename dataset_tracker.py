@@ -1,6 +1,5 @@
 import pandas as pd
 import os
-import json
 from datetime import datetime
 
 def track_changes(dataset_name, new_csv_path, changelog_path="changelog.json"):
@@ -59,17 +58,39 @@ def track_changes(dataset_name, new_csv_path, changelog_path="changelog.json"):
                 entry["event"] = "UPDATED"
                 new_entries.append(entry)
 
-    # 3. Update the Machine-Readable Changelog (JSON)
+    # 3. Update the CSV Changelog
     if new_entries:
-        history = []
+        changelog_rows = []
+        for entry in new_entries:
+            if entry["event"] in ["DELETED", "ADDED"]:
+                changelog_rows.append({
+                    "date": entry["date"],
+                    "dataset": entry["dataset"],
+                    "id": entry["id"],
+                    "event": entry["event"],
+                    "field": "",
+                    "old_value": "",
+                    "new_value": ""
+                })
+            else:  # UPDATED
+                for change in entry["changes"]:
+                    changelog_rows.append({
+                        "date": entry["date"],
+                        "dataset": entry["dataset"],
+                        "id": entry["id"],
+                        "event": entry["event"],
+                        "field": change["field"],
+                        "old_value": change["old"],
+                        "new_value": change["new"]
+                    })
+        
+        changelog_df = pd.DataFrame(changelog_rows)
+        
+        # Append to existing changelog or create new one
         if os.path.exists(changelog_path):
-            with open(changelog_path, 'r') as f:
-                history = json.load(f)
-        
-        history.extend(new_entries)
-        
-        with open(changelog_path, 'w') as f:
-            json.dump(history, f, indent=2)
+            changelog_df.to_csv(changelog_path, mode='a', header=False, index=False)
+        else:
+            changelog_df.to_csv(changelog_path, index=False)
 
     # 4. Overwrite the 'current' file so Git can track the file change itself
     new_df.to_csv(current_repo_path, index=False)
@@ -84,4 +105,5 @@ if __name__ == "__main__":
                 # Use the filename (without .csv) as the dataset name
                 dataset_name = filename.replace('.csv', '')
                 print(f"Tracking changes for: {dataset_name}")
-                track_changes(dataset_name, filepath)
+                changelog_path = f"{dataset_name}_changelog.json"
+                track_changes(dataset_name, filepath, changelog_path)
