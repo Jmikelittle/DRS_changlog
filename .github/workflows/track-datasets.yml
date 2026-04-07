@@ -25,11 +25,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests
       
-      - name: Download datasets
-        run: python dataset_download.py
-      
-      - name: Track changes
-        run: python dataset_tracker.py
+      - name: Sync and track datasets
+        run: python sync_datasets.py
       
       - name: Commit and push changes
         run: |

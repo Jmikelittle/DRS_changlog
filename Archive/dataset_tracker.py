@@ -1,5 +1,7 @@
 import pandas as pd
 import os
+import subprocess
+from io import StringIO
 from datetime import datetime
 
 def track_changes(dataset_name, new_csv_path, changelog_path="changelog.json"):
@@ -19,7 +21,24 @@ def track_changes(dataset_name, new_csv_path, changelog_path="changelog.json"):
         new_df.to_csv(current_repo_path, index=False)
         return
 
-    old_df = pd.read_csv(current_repo_path).fillna("")
+    # Load the old version from git (HEAD) before the files were overwritten
+    try:
+        old_content = subprocess.run(
+            ['git', 'show', f'HEAD:{current_repo_path}'],
+            capture_output=True,
+            text=True,
+            check=False
+        )
+        if old_content.returncode == 0:
+            old_df = pd.read_csv(StringIO(old_content.stdout)).fillna("")
+        else:
+            # File doesn't exist in git history, treat as new
+            new_df.to_csv(current_repo_path, index=False)
+            return
+    except Exception as e:
+        print(f"Error reading git history for {dataset_name}: {e}")
+        new_df.to_csv(current_repo_path, index=False)
+        return
 
     # 2. Compare DataFrames
     merged = old_df.merge(new_df, on=pk, suffixes=('_old', '_new'), how='outer', indicator=True)
