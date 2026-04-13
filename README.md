@@ -1,7 +1,10 @@
 # DRS_changlog
 Testing out a way to regularly check and document changes to reference datasets which are part of a Data Reference Standard.
 
-Of the Data Reference Standards set by the Government of Canada, standards with Reference Data can be updated as needed by the data steward. Some standards change rarely, some change a few times a year and potentially a dataset could change daily. 
+Of the Data Reference Standards set by the Government of Canada, standards with Reference Data can be updated as needed by the data steward. Some standards change rarely, some change a few times a year and potentially a dataset could change daily.
+
+## View Recent Changes
+Visit the [Dataset Changelog Dashboard](https://jmikelittle.github.io/DRS_changlog) to see recent changes to all tracked datasets. 
 
 Reference Data in Data Reference Standards
 
