@@ -43,3 +43,23 @@ Reference data on Canadian Provinces and Territories
     Type: CSV
 
     Dataset Link: https://open.canada.ca/data/datastore/dump/4cb827a6-a313-4d97-a66b-26fe23984931?bom=True
+
+Data Reference Standard on Person(s): gender
+URL: https://open.canada.ca/data/en/dataset/21ffae40-8e4b-4082-a4f6-3c67f400e126
+Resources
+
+Data Reference Standard on Person(s): gender
+
+    Type: CSV
+
+    Dataset Link: https://open.canada.ca/data/en/datastore/dump/56eed7af-6a70-48d7-a402-4082ebe1e3b5?bom=True
+
+Data Reference Standard on Person(s): sex assigned at birth
+URL: https://open.canada.ca/data/en/dataset/9c36431e-d916-498d-9779-0c52ce840293
+Resources
+
+Data Reference Standard on Person(s): sex assigned at birth 
+
+    Type: CSV
+
+    Dataset Link: https://open.canada.ca/data/en/datastore/dump/ab457ba4-4a80-476b-8608-c57c52d59bd1?bom=True

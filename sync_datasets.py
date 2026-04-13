@@ -33,6 +33,13 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
 
     datasets = []
     
+    # Debug: print all lines with 'Dataset Link'
+    print("DEBUG: All lines containing 'Dataset Link':")
+    for i, line in enumerate(lines):
+        if 'Dataset Link' in line:
+            print(f"  Line {i+1}: {repr(line[:100])}")
+    print()
+    
     for i, line in enumerate(lines):
         if 'Dataset Link:' in line:
             # Extract the URL from the line
@@ -50,12 +57,18 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                 if dataset_name:
                     safe_name = sanitize_filename(dataset_name)
                     datasets.append((safe_name, download_url))
+                    print(f"DEBUG: Found dataset at line {i+1}: '{dataset_name}' -> {safe_name}")
+                else:
+                    print(f"DEBUG: No dataset name found for URL at line {i+1}: {download_url}")
 
     if not datasets:
         print("No datasets found in the README.")
         return
 
     print(f"Found {len(datasets)} dataset(s). Starting sync and tracking...\n")
+    print("Datasets to process:")
+    for filename, url in datasets:
+        print(f"  - {filename}: {url}\n")
     timestamp = datetime.now().strftime('%Y-%m-%d')
 
     # Step 2: Download, compare, and track each dataset
