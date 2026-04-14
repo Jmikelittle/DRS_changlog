@@ -23,11 +23,47 @@
             border-radius: 6px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+        .dataset-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .dataset-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .dataset-link-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: background-color 0.2s;
+        }
+        .dataset-link-btn:hover {
+            background-color: #218838;
+        }
+        .dataset-link-btn.view-btn {
+            background-color: #0366d6;
+        }
+        .dataset-link-btn.view-btn:hover {
+            background-color: #0256c7;
+        }
         h2 { 
             color: #0366d6; 
-            margin-top: 0;
-            border-bottom: 2px solid #e1e4e8;
-            padding-bottom: 10px;
+            margin: 0;
+            padding: 0;
+            border: none;
         }
         .no-changes { color: #666; font-style: italic; }
         table { 
@@ -75,7 +111,13 @@
             border-radius: 6px;
             margin-bottom: 20px;
         }
-        .expand-btn {
+        .expand-controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .expand-btn, .size-btn {
             background-color: #0366d6;
             color: white;
             border: none;
@@ -83,30 +125,50 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
-            margin-top: 10px;
             transition: background-color 0.2s;
         }
-        .expand-btn:hover {
+        .expand-btn:hover, .size-btn:hover {
             background-color: #0256c7;
         }
         .expand-container {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s ease;
         }
         .expand-container.expanded {
-            max-height: 600px;
-            transition: max-height 0.3s ease-in;
+            max-height: 800px;
+        }
+        .expand-container.expanded.maximized {
+            max-height: 90vh;
         }
         .scrollable-table-wrapper {
             overflow-y: auto;
-            max-height: 500px;
-            border: 1px solid #e1e4e8;
-            border-radius: 4px;
+            max-height: 600px;
+            border: 2px solid #0366d6;
+            border-radius: 6px;
             margin-top: 10px;
+            background-color: #fafbfc;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .scrollable-table-wrapper.maximized {
+            max-height: calc(90vh - 180px);
         }
         .scrollable-table-wrapper table {
             margin: 0;
+        }
+        .expand-container.expanded .scrollable-table-wrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+        .expand-container.expanded .scrollable-table-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .expand-container.expanded .scrollable-table-wrapper::-webkit-scrollbar-thumb {
+            background: #0366d6;
+            border-radius: 4px;
+        }
+        .expand-container.expanded .scrollable-table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #0256c7;
         }
     </style>
 </head>
@@ -171,13 +233,31 @@
         }
         
         function toggleExpand(button) {
-            const container = button.nextElementSibling;
+            const container = button.parentElement.querySelector('.expand-container');
             container.classList.toggle('expanded');
+            const maximizeBtn = button.parentElement.querySelector('.size-btn');
+            
             if (container.classList.contains('expanded')) {
                 button.textContent = 'Show less';
+                if (maximizeBtn) maximizeBtn.style.display = 'inline-block';
             } else {
-                const changeCount = button.getAttribute('data-change-count');
-                button.textContent = `Show all ${changeCount} changes`;
+                button.textContent = button.getAttribute('data-show-text');
+                if (maximizeBtn) maximizeBtn.style.display = 'none';
+                container.classList.remove('maximized');
+                container.querySelector('.scrollable-table-wrapper').classList.remove('maximized');
+            }
+        }
+        
+        function toggleMaximize(button) {
+            const container = button.parentElement.querySelector('.expand-container');
+            const tableWrapper = container.querySelector('.scrollable-table-wrapper');
+            
+            if (container.classList.toggle('maximized')) {
+                tableWrapper.classList.add('maximized');
+                button.textContent = '↙ Restore';
+            } else {
+                tableWrapper.classList.remove('maximized');
+                button.textContent = '↗ Maximize';
             }
         }
         
@@ -216,12 +296,25 @@
                         
                         // Get dataset name from filename
                         const datasetName = file.name.replace('_changelog.csv', '').replace(/_/g, ' ');
+                        const filename = file.name.replace('_changelog.csv', '.csv');
+                        const owner = 'Jmikelittle';
+                        const repo = 'DRS_changlog';
+                        const branch = 'main';
+                        
+                        const viewUrl = `https://github.com/${owner}/${repo}/blob/${branch}/downloaded_datasets/${filename}`;
+                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/downloaded_datasets/${filename}`;
                         
                         // Show 50 most recent entries
                         const recent = data.slice(Math.max(0, data.length - 50)).reverse();
                         
                         html += `<div class="dataset">
-                            <h2>${datasetName}</h2>`;
+                            <div class="dataset-header">
+                                <h2>${datasetName}</h2>
+                                <div class="dataset-links">
+                                    <a href="${viewUrl}" target="_blank" class="dataset-link-btn view-btn">📊 View on GitHub</a>
+                                    <a href="${downloadUrl}" download class="dataset-link-btn">⬇ Download CSV</a>
+                                </div>
+                            </div>`;
                         
                         if (recent.length === 0) {
                             html += '<p class="no-changes">No changes tracked yet.</p>';
@@ -263,7 +356,10 @@
                             
                             // Show expand button if there are more entries
                             if (remaining.length > 0) {
-                                html += `<button class="expand-btn" data-change-count="${recent.length}" onclick="toggleExpand(this)">Show all ${recent.length} changes</button>
+                                html += `<div class="expand-controls">
+                                    <button class="expand-btn" data-change-count="${recent.length}" data-show-text="Show all ${recent.length} changes" onclick="toggleExpand(this)">Show all ${recent.length} changes</button>
+                                    <button class="size-btn" style="display: none;" onclick="toggleMaximize(this)">↗ Maximize</button>
+                                </div>
                                 <div class="expand-container">
                                     <div class="scrollable-table-wrapper">
                                         <table>
