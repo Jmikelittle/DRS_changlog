@@ -233,9 +233,9 @@
         }
         
         function toggleExpand(button) {
-            const container = button.parentElement.querySelector('.expand-container');
+            const container = button.closest('.dataset').querySelector('.expand-container');
             container.classList.toggle('expanded');
-            const maximizeBtn = button.parentElement.querySelector('.size-btn');
+            const maximizeBtn = button.closest('.dataset').querySelector('.size-btn');
             
             if (container.classList.contains('expanded')) {
                 button.textContent = 'Show less';
@@ -249,7 +249,7 @@
         }
         
         function toggleMaximize(button) {
-            const container = button.parentElement.querySelector('.expand-container');
+            const container = button.closest('.dataset').querySelector('.expand-container');
             const tableWrapper = container.querySelector('.scrollable-table-wrapper');
             
             if (container.classList.toggle('maximized')) {
@@ -296,13 +296,12 @@
                         
                         // Get dataset name from filename
                         const datasetName = file.name.replace('_changelog.csv', '').replace(/_/g, ' ');
-                        const filename = file.name.replace('_changelog.csv', '.csv');
                         const owner = 'Jmikelittle';
                         const repo = 'DRS_changlog';
                         const branch = 'main';
                         
-                        const viewUrl = `https://github.com/${owner}/${repo}/blob/${branch}/downloaded_datasets/${filename}`;
-                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/downloaded_datasets/${filename}`;
+                        const viewUrl = `https://github.com/${owner}/${repo}/blob/${branch}/downloaded_datasets/${file.name}`;
+                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/downloaded_datasets/${file.name}`;
                         
                         // Show 50 most recent entries
                         const recent = data.slice(Math.max(0, data.length - 50)).reverse();
@@ -324,18 +323,19 @@
                             const remaining = recent.slice(5);
                             
                             html += `<p style="color: #666; font-size: 13px; margin: 0 0 10px 0;">Showing 5 most recent changes</p>`;
-                            html += `<table>
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Event</th>
-                                        <th>ID</th>
-                                        <th>Field</th>
-                                        <th>Old Value</th>
-                                        <th>New Value</th>
-                                    </tr>
-                                </thead>
-                                <tbody>`;
+                            html += `<div class="scrollable-table-wrapper" style="max-height: 300px;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Event</th>
+                                            <th>ID</th>
+                                            <th>Field</th>
+                                            <th>Old Value</th>
+                                            <th>New Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>`;
                             
                             for (const row of topFive) {
                                 const event = row.event || '';
@@ -352,7 +352,8 @@
                             }
                             
                             html += `</tbody>
-                            </table>`;
+                                </table>
+                            </div>`;
                             
                             // Show expand button if there are more entries
                             if (remaining.length > 0) {
