@@ -69,12 +69,24 @@
       "name_en": "Person Gender",
       "name_fr": "Genre de la Personne",
       "fields": {
-        "id": { "en": "ID", "fr": "ID" },
-        "event": { "en": "Event", "fr": "Événement" },
-        "field": { "en": "Field", "fr": "Champ" },
-        "old_value": { "en": "Old Value", "fr": "Ancienne Valeur" },
-        "new_value": { "en": "New Value", "fr": "Nouvelle Valeur" },
-        "date": { "en": "Date", "fr": "Date" }
+        "code": { "en": "code", "fr": "code" },
+        "hr_title_en": { "en": "English title: Human Resources", "fr": "Titre en anglais : Human Resources" },
+        "dmo_title_en": { "en": "English title: Demographic", "fr": "Titre en anglais : Demographic" },
+        "hr_title_fr": { "en": "French title: Ressources humaines", "fr": "Titre en français : Ressources humaines" },
+        "dmo_title_fr": { "en": "French title: Démographique", "fr": "Titre en français : Démographique" },
+        "english_def": { "en": "English Definition", "fr": "Définition en anglais" },
+        "french_def": { "en": "French Definition", "fr": "Définition en français" }
+      }
+    },
+      "Data_Reference_Standard_on_Person(s)_sex assigned at birth": { 
+      "name_en": "Person Sex",
+      "name_fr": "Sexe de la Personne",
+      "fields": {
+        "code": { "en": "code", "fr": "code" },
+        "tit_en": { "en": "English title", "fr": "Titre en anglais" },
+        "tit_fr": { "en": "French title", "fr": "Titre en français" },
+        "en_def": { "en": "English Definition", "fr": "Définition en anglais" },
+        "fr_def": { "en": "French Definition", "fr": "Définition en français" }
       }
     },
     "Data_Reference_Standard_on_Person(s)_sex_assigned_at_birth": {
@@ -93,12 +105,13 @@
       "name_en": "Canadian Provinces and Territories",
       "name_fr": "Provinces et Territoires Canadiens",
       "fields": {
-        "id": { "en": "ID", "fr": "ID" },
-        "event": { "en": "Event", "fr": "Événement" },
-        "field": { "en": "Field", "fr": "Champ" },
-        "old_value": { "en": "Old Value", "fr": "Ancienne Valeur" },
-        "new_value": { "en": "New Value", "fr": "Nouvelle Valeur" },
-        "date": { "en": "Date", "fr": "Date" }
+        "nm_en": { "en": "Name in English", "fr": "Nom anglais" },
+        "nm_fr": { "en": "Name in French", "fr": "Nom français" },
+        "ab_en": { "en": "Abbreviation in English", "fr": "Abréviation anglaise" },
+        "ab_fr": { "en": "Abbreviation in French", "fr": "Abréviation française" },
+        "al_code": { "en": "Alpha Code", "fr": "Code Alpha" },
+        "nu_code": { "en": "Numeric Code", "fr": "Code numérique" },
+        "iso_code": { "en": "ISO Code", "fr": "Code ISO" }
       }
     }
   },
@@ -130,6 +143,10 @@
     "Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas": {
       "en": "GC_NM_OFF_EN",
       "fr": "GC_NM_OFF_FR"
+    },
+    "Reference_data_on_Canadian_Provinces_and_Territories": {
+      "nm_en": { "en": "Name in English", "fr": "Nom anglais" },
+      "nm_fr": { "en": "Name in French", "fr": "Nom français" }
     }
   },
   "ui_text": {
