@@ -149,8 +149,8 @@
       "fr": "nom_harmonise"
     },
     "Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas": {
-      "en": "GC_NM_OFF_EN",
-      "fr": "GC_NM_OFF_FR"
+      "en": "GC_NM_AB_EN",
+      "fr": "GC_NM_AB_FR"
     },
     "Reference_data_on_Canadian_Provinces_and_Territories": {
       "en": "nm_en",
