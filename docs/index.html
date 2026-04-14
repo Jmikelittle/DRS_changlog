@@ -274,7 +274,7 @@
         function getText(key) {
             if (!metadata || !metadata.ui_text) return key;
             
-            // First try direct lookup with language suffix (for flat structure like "table_headers.date_en")
+            // First try direct lookup with language suffix (for flat structure like "title_en")
             const langSuffixKey = `${key}_${currentLanguage}`;
             if (metadata.ui_text[langSuffixKey]) {
                 return metadata.ui_text[langSuffixKey];
@@ -283,25 +283,30 @@
             // Then handle nested keys like "table_headers.date" 
             if (key.includes('.')) {
                 const parts = key.split('.');
-                let current = metadata.ui_text;
+                const lastPart = parts[parts.length - 1];
+                const pathParts = parts.slice(0, -1);
                 
-                // Navigate through the nested structure
-                for (const part of parts) {
+                // Navigate through path parts (all except last)
+                let current = metadata.ui_text;
+                for (const part of pathParts) {
                     if (current && typeof current === 'object') {
                         current = current[part];
                     } else {
-                        break;
+                        return key;
                     }
                 }
                 
-                // If we found an object with language keys, return the appropriate language
+                // Now look for language key using last part + language suffix
                 if (current && typeof current === 'object') {
-                    return current[currentLanguage] || current['en'] || key;
-                }
-                
-                // If we found a string value, return it
-                if (typeof current === 'string') {
-                    return current;
+                    const langKey = `${lastPart}_${currentLanguage}`;
+                    if (current[langKey]) {
+                        return current[langKey];
+                    }
+                    // Fallback to English
+                    const enKey = `${lastPart}_en`;
+                    if (current[enKey]) {
+                        return current[enKey];
+                    }
                 }
             }
             
@@ -422,12 +427,6 @@
                         // Extract dataset key from filename (e.g., "Organization_Information_changelog.csv" -> "Organization_Information")
                         const datasetKey = file.name.replace('_changelog.csv', '');
                         
-                        // Filter out rows where the field is a language variant we shouldn't display
-                        const filteredRecent = recent.filter(row => {
-                            const fieldName = row.field || '';
-                            return !shouldSkipField(datasetKey, fieldName);
-                        });
-                        
                         html += `<div class="dataset">
                             <div class="dataset-header">
                                 <h2>${datasetName}</h2>
@@ -437,7 +436,7 @@
                                 </div>
                             </div>`;
                         
-                        if (filteredRecent.length === 0) {
+                        if (recent.length === 0) {
                             html += `<p class="no-changes">${getText('no_changes')}</p>`;
                         } else {
                             html += `<div class="scrollable-table-wrapper" style="max-height: 500px;">
@@ -455,7 +454,7 @@
                                     </thead>
                                     <tbody>`;
                             
-                            for (const row of filteredRecent) {
+                            for (const row of recent) {
                                 const event = row.event || '';
                                 const eventClass = getEventClass(event);
                                 const eventLabel = getEventLabel(event);
