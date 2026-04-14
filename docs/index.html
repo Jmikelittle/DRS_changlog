@@ -311,19 +311,14 @@
                                 <h2>${datasetName}</h2>
                                 <div class="dataset-links">
                                     <a href="${viewUrl}" target="_blank" class="dataset-link-btn view-btn">📊 View on GitHub</a>
-                                    <a href="${downloadUrl}" download class="dataset-link-btn">⬇ Download CSV</a>
+                                    <a href="${downloadUrl}" download class="dataset-link-btn">⬇ Raw CSV</a>
                                 </div>
                             </div>`;
                         
                         if (recent.length === 0) {
                             html += '<p class="no-changes">No changes tracked yet.</p>';
                         } else {
-                            // Show first 5 most recent
-                            const topFive = recent.slice(0, 5);
-                            const remaining = recent.slice(5);
-                            
-                            html += `<p style="color: #666; font-size: 13px; margin: 0 0 10px 0;">Showing 5 most recent changes</p>`;
-                            html += `<div class="scrollable-table-wrapper" style="max-height: 300px;">
+                            html += `<div class="scrollable-table-wrapper" style="max-height: 500px;">
                                 <table>
                                     <thead>
                                         <tr>
@@ -337,7 +332,7 @@
                                     </thead>
                                     <tbody>`;
                             
-                            for (const row of topFive) {
+                            for (const row of recent) {
                                 const event = row.event || '';
                                 const eventClass = getEventClass(event);
                                 
@@ -354,47 +349,6 @@
                             html += `</tbody>
                                 </table>
                             </div>`;
-                            
-                            // Show expand button if there are more entries
-                            if (remaining.length > 0) {
-                                html += `<div class="expand-controls">
-                                    <button class="expand-btn" data-change-count="${recent.length}" data-show-text="Show all ${recent.length} changes" onclick="toggleExpand(this)">Show all ${recent.length} changes</button>
-                                    <button class="size-btn" style="display: none;" onclick="toggleMaximize(this)">↗ Maximize</button>
-                                </div>
-                                <div class="expand-container">
-                                    <div class="scrollable-table-wrapper">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>Date</th>
-                                                    <th>Event</th>
-                                                    <th>ID</th>
-                                                    <th>Field</th>
-                                                    <th>Old Value</th>
-                                                    <th>New Value</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>`;
-                                
-                                for (const row of remaining) {
-                                    const event = row.event || '';
-                                    const eventClass = getEventClass(event);
-                                    
-                                    html += `<tr>
-                                        <td>${row.date || ''}</td>
-                                        <td><span class="${eventClass}">${event}</span></td>
-                                        <td>${row.id || ''}</td>
-                                        <td>${row.field || '-'}</td>
-                                        <td><code>${(row.old_value || '').substring(0, 100)}</code></td>
-                                        <td><code>${(row.new_value || '').substring(0, 100)}</code></td>
-                                    </tr>`;
-                                }
-                                
-                                html += `</tbody>
-                                        </table>
-                                    </div>
-                                </div>`;
-                            }
                         }
                         
                         html += `</div>`;
