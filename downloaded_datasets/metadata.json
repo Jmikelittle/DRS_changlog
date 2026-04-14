@@ -43,26 +43,28 @@
       "name_en": "Countries, Territories and Geographic Areas",
       "name_fr": "Pays, Territoires et Zones Géographiques",
       "fields": {
-        "GC_HIST_ID": { "en": "GC History ID", "fr": "ID Historique GC" },
-        "GC_ID": { "en": "GC ID", "fr": "ID GC" },
-        "GC_NM_OFF_EN": { "en": "Official Name", "fr": "Nom Officiel" },
-        "GC_NM_OFF_FR": { "en": "Official Name", "fr": "Nom Officiel" },
-        "GC_NM_AB_EN": { "en": "Abbreviation", "fr": "Abréviation" },
-        "GC_NM_AB_FR": { "en": "Abbreviation", "fr": "Abréviation" },
-        "STAT_CD": { "en": "Status Code", "fr": "Code de Statut" },
-        "STAT_DESC_EN": { "en": "Status Description", "fr": "Description du Statut" },
-        "STAT_DESC_FR": { "en": "Status Description", "fr": "Description du Statut" },
-        "TYPE_CD": { "en": "Type Code", "fr": "Code de Type" },
-        "TYPE_DESC_EN": { "en": "Type Description", "fr": "Description du Type" },
-        "TYPE_DESC_FR": { "en": "Type Description", "fr": "Description du Type" },
-        "EFF_DT": { "en": "Effective Date", "fr": "Date d'Entrée en Vigueur" },
-        "EFF_FN_DT": { "en": "End Effective Date", "fr": "Date de Fin d'Entrée en Vigueur" },
-        "OBSERVATIONS_EN": { "en": "Observations", "fr": "Observations" },
-        "OBSERVATIONS_FR": { "en": "Observations", "fr": "Observations" },
-        "ISO_ALPHA_2_CD": { "en": "ISO Alpha-2 Code", "fr": "Code ISO Alpha-2" },
-        "ISO_ALPHA_3_CD": { "en": "ISO Alpha-3 Code", "fr": "Code ISO Alpha-3" },
-        "UN_ONU_CD": { "en": "UN Code", "fr": "Code ONU" },
-        "MODIF_DT": { "en": "Modification Date", "fr": "Date de Modification" }
+        "GC_HIST_ID": { "en": "GC Historic Country Identifier", "fr": "GC Identifiant historique du pays" },
+        "GC_ID": { "en": "GC Country Identifier", "fr": "GC Identifiant de pays" },
+        "GC_NM_OFF_EN": { "en": "GC Country Full Name English", "fr": "GC Nom complet du pays anglais" },
+        "GC_NM_OFF_FR": { "en": "GC Country Full Name French", "fr": "GC Nom complet du pays français" },
+        "GC_NM_AB_EN": { "en": "GC Country Short Name English", "fr": "GC Nom abrégé pays anglais" },
+        "GC_NM_AB_FR": { "en": "GC Country Short Name French", "fr": "GC Nom abrégé pays français" },
+        "STAT_CD": { "en": "GC Country Status Code", "fr": "GC code du statut du pays" },
+        "STAT_DESC_EN": { "en": "Country Status Description", "fr": "Description du statut du pays (anglais)" },
+        "STAT_DESC_FR": { "en": "Country Status Description (French)", "fr": "Description du Statut du pays" },
+        "TYPE_CD": { "en": "GC Country Type Code", "fr": "GC code du type de pays" },
+        "TYPE_DESC_EN": { "en": "Country Type Description", "fr": "Description du type de pays (anglais)" },
+        "TYPE_DESC_FR": { "en": "Country Type Description (French)", "fr": "Description du type de pays" },
+        "EFF_DT": { "en": "Effective Date", "fr": "Date effective" },
+        "EFF_FN_DT": { "en": "Effective End Date", "fr": "Date de fin d'effet" },
+        "OBSERVATIONS_EN": { "en": "Observations", "fr": "Observations (anglais)" },
+        "OBSERVATIONS_FR": { "en": "Observations (French)", "fr": "Observations" },
+        "GC_PAR_ID": { "en": "GC Parent Country ID", "fr": "Pays parent ID" },
+        "GC_JUR_ID": { "en": "GC Administrative Jurisdiction ID", "fr": "Juridiction administrative ID" },
+        "ISO_ALPHA_2_CD": { "en": "ISO Alpha-2 Code", "fr": "ISO Code alpha-2 du pays" },
+        "ISO_ALPHA_3_CD": { "en": "ISO Alpha-3 Code", "fr": "ISO Code alpha-3 du pays" },
+        "UN_ONU_CD": { "en": "UN Country Numeric Code", "fr": "ONU Code numérique du pays" },
+        "MODIF_DT": { "en": "Date Modified", "fr": "Date modifié" }
       }
     },
     "Data_Reference_Standard_on_Person(s)_gender": {
@@ -87,18 +89,6 @@
         "tit_fr": { "en": "French title", "fr": "Titre en français" },
         "en_def": { "en": "English Definition", "fr": "Définition en anglais" },
         "fr_def": { "en": "French Definition", "fr": "Définition en français" }
-      }
-    },
-    "Data_Reference_Standard_on_Person(s)_sex_assigned_at_birth": {
-      "name_en": "Person Sex Assigned at Birth",
-      "name_fr": "Sexe Assigné à la Naissance de la Personne",
-      "fields": {
-        "id": { "en": "ID", "fr": "ID" },
-        "event": { "en": "Event", "fr": "Événement" },
-        "field": { "en": "Field", "fr": "Champ" },
-        "old_value": { "en": "Old Value", "fr": "Ancienne Valeur" },
-        "new_value": { "en": "New Value", "fr": "Nouvelle Valeur" },
-        "date": { "en": "Date", "fr": "Date" }
       }
     },
     "Reference_data_on_Canadian_Provinces_and_Territories": {
