@@ -113,12 +113,30 @@
       "lead_department": "ministere_responsable",
       "abbreviation": "abreviation"
     },
+    "Concordance_Data": {
+      "harmonized_name": "nom_harmonise",
+      "abbreviation": "abreviation",
+      "website": "site_web"
+    },
     "Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas": {
       "GC_NM_OFF_EN": "GC_NM_OFF_FR",
       "GC_NM_AB_EN": "GC_NM_AB_FR",
       "STAT_DESC_EN": "STAT_DESC_FR",
       "TYPE_DESC_EN": "TYPE_DESC_FR",
       "OBSERVATIONS_EN": "OBSERVATIONS_FR"
+    },
+    "Data_Reference_Standard_on_Person(s)_gender": {
+      "hr_title_en": "hr_title_fr",
+      "dmo_title_en": "dmo_title_fr",
+      "english_def": "french_def"
+    },
+    "Data_Reference_Standard_on_Person(s)_sex_assigned_at_birth": {
+      "tit_en": "tit_fr",
+      "en_def": "fr_def"
+    },
+    "Reference_data_on_Canadian_Provinces_and_Territories": {
+      "nm_en": "nm_fr",
+      "ab_en": "ab_fr"
     }
   },
   "entity_name_fields": {
@@ -135,8 +153,8 @@
       "fr": "GC_NM_OFF_FR"
     },
     "Reference_data_on_Canadian_Provinces_and_Territories": {
-      "nm_en": { "en": "Name in English", "fr": "Nom anglais" },
-      "nm_fr": { "en": "Name in French", "fr": "Nom français" }
+      "en": "nm_en",
+      "fr": "nm_fr"
     }
   },
   "ui_text": {

@@ -273,6 +273,26 @@
         
         function getText(key) {
             if (!metadata || !metadata.ui_text) return key;
+            
+            // Handle nested keys like "table_headers.date"
+            if (key.includes('.')) {
+                const parts = key.split('.');
+                let current = metadata.ui_text;
+                for (const part of parts) {
+                    if (current && typeof current === 'object') {
+                        current = current[part];
+                    } else {
+                        return key; // Fallback if path doesn't exist
+                    }
+                }
+                // If we found an object, look for language suffix
+                if (current && typeof current === 'object') {
+                    return current[currentLanguage] || current['en'] || key;
+                }
+                return current || key;
+            }
+            
+            // Flat key lookup
             const textKey = `${key}_${currentLanguage}`;
             return metadata.ui_text[textKey] || key;
         }
