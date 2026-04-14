@@ -170,18 +170,57 @@
         .expand-container.expanded .scrollable-table-wrapper::-webkit-scrollbar-thumb:hover {
             background: #0256c7;
         }
+        .lang-btn {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .lang-btn.active {
+            background-color: #0366d6;
+            color: white;
+            border-color: #0366d6;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Data Reference Standard Changelogs</h1>
-        <p class="subtitle">Tracking changes to Government of Canada reference datasets</p>
-        <div id="content" class="loading">Loading changelog data...</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div>
+                <h1 id="title">Data Reference Standard Changelogs</h1>
+                <p class="subtitle" id="subtitle">Tracking changes to Government of Canada reference datasets</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button id="lang-en" class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button id="lang-fr" class="lang-btn" onclick="switchLanguage('fr')">Français</button>
+            </div>
+        </div>
+        <div id="content" class="loading" data-loading="Loading changelog data..." data-loading-fr="Chargement des données du journal de modifications...">Loading changelog data...</div>
     </div>
     
     <script>
+        let currentLanguage = 'en';
+        let metadata = null;
+        
+        async function loadMetadata() {
+            try {
+                const response = await fetch('/downloaded_datasets/metadata.json');
+                metadata = await response.json();
+            } catch (err) {
+                console.error('Error loading metadata:', err);
+                metadata = { datasets: {}, ui_text: {} };
+            }
+        }
+        
         function parseCSV(text) {
-            // Simple CSV parser that handles quoted fields
             const lines = text.trim().split('\n');
             const result = [];
             
@@ -232,33 +271,85 @@
             return `event-${event.toUpperCase()}`;
         }
         
-        function toggleExpand(button) {
-            const container = button.closest('.dataset').querySelector('.expand-container');
-            container.classList.toggle('expanded');
-            const maximizeBtn = button.closest('.dataset').querySelector('.size-btn');
-            
-            if (container.classList.contains('expanded')) {
-                button.textContent = 'Show less';
-                if (maximizeBtn) maximizeBtn.style.display = 'inline-block';
-            } else {
-                button.textContent = button.getAttribute('data-show-text');
-                if (maximizeBtn) maximizeBtn.style.display = 'none';
-                container.classList.remove('maximized');
-                container.querySelector('.scrollable-table-wrapper').classList.remove('maximized');
-            }
+        function getText(key) {
+            if (!metadata || !metadata.ui_text) return key;
+            const textKey = `${key}_${currentLanguage}`;
+            return metadata.ui_text[textKey] || key;
         }
         
-        function toggleMaximize(button) {
-            const container = button.closest('.dataset').querySelector('.expand-container');
-            const tableWrapper = container.querySelector('.scrollable-table-wrapper');
-            
-            if (container.classList.toggle('maximized')) {
-                tableWrapper.classList.add('maximized');
-                button.textContent = '↙ Restore';
-            } else {
-                tableWrapper.classList.remove('maximized');
-                button.textContent = '↗ Maximize';
+        function getDatasetName(datasetFilename) {
+            const datasetKey = datasetFilename.replace('_changelog.csv', '');
+            if (metadata && metadata.datasets && metadata.datasets[datasetKey]) {
+                return metadata.datasets[datasetKey][`name_${currentLanguage}`];
             }
+            return datasetKey.replace(/_/g, ' ');
+        }
+        
+        function getFieldLabel(datasetFilename, fieldName) {
+            const datasetKey = datasetFilename.replace('_changelog.csv', '');
+            if (metadata && metadata.datasets && metadata.datasets[datasetKey] && metadata.datasets[datasetKey].fields) {
+                const fieldData = metadata.datasets[datasetKey].fields[fieldName];
+                if (fieldData) {
+                    return fieldData[currentLanguage] || fieldName;
+                }
+            }
+            return fieldName;
+        }
+        
+        function getEntityNameFieldForDataset(datasetKey) {
+            if (metadata && metadata.entity_name_fields && metadata.entity_name_fields[datasetKey]) {
+                return metadata.entity_name_fields[datasetKey][currentLanguage];
+            }
+            return null;
+        }
+        
+        function getFieldVariants(datasetKey) {
+            if (metadata && metadata.language_variants && metadata.language_variants[datasetKey]) {
+                return metadata.language_variants[datasetKey];
+            }
+            return {};
+        }
+        
+        function shouldSkipField(datasetKey, fieldName) {
+            const variants = getFieldVariants(datasetKey);
+            // Skip if this field is a FR variant of an EN field
+            for (const [enField, frField] of Object.entries(variants)) {
+                if (currentLanguage === 'en' && fieldName === frField) {
+                    return true;
+                }
+                if (currentLanguage === 'fr' && fieldName === enField) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function getActualFieldName(datasetKey, displayFieldName) {
+            const variants = getFieldVariants(datasetKey);
+            // If we're in FR mode and this is an EN field with a FR variant, return the FR variant
+            if (currentLanguage === 'fr' && variants[displayFieldName]) {
+                return variants[displayFieldName];
+            }
+            return displayFieldName;
+        }
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
+            
+            document.getElementById('title').textContent = getText('title');
+            document.getElementById('subtitle').textContent = getText('subtitle');
+            
+            loadChangelogs();
+        }
+        
+        function getEventLabel(event) {
+            const eventLower = event.toLowerCase();
+            if (eventLower === 'added') return currentLanguage === 'en' ? 'ADDED' : 'AJOUTÉ';
+            if (eventLower === 'deleted') return currentLanguage === 'en' ? 'DELETED' : 'SUPPRIMÉ';
+            if (eventLower === 'updated') return currentLanguage === 'en' ? 'UPDATED' : 'MODIFIÉ';
+            return event;
         }
         
         async function loadChangelogs() {
@@ -266,24 +357,21 @@
             const repo = 'DRS_changlog';
             
             try {
-                // Fetch files from downloaded_datasets directory
                 const response = await fetch(
                     `https://api.github.com/repos/${owner}/${repo}/contents/downloaded_datasets`
                 );
                 const files = await response.json();
                 
-                // Filter for changelog files
                 const changelogFiles = files.filter(f => f.name.includes('_changelog.csv'));
                 
                 if (changelogFiles.length === 0) {
                     document.getElementById('content').innerHTML = 
-                        '<p class="no-changes">No changelog data available yet. The first run will track baseline datasets.</p>';
+                        `<p class="no-changes">${getText('no_data')}</p>`;
                     return;
                 }
                 
                 let html = '';
                 
-                // Load and display each changelog
                 for (const file of changelogFiles) {
                     try {
                         const contentResponse = await fetch(file.download_url);
@@ -294,53 +382,62 @@
                             continue;
                         }
                         
-                        // Get dataset name from filename
-                        const datasetName = file.name.replace('_changelog.csv', '').replace(/_/g, ' ');
-                        const owner = 'Jmikelittle';
-                        const repo = 'DRS_changlog';
-                        const branch = 'main';
+                        const datasetName = getDatasetName(file.name);
+                        const viewUrl = `https://github.com/${owner}/${repo}/blob/main/downloaded_datasets/${file.name}`;
+                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/downloaded_datasets/${file.name}`;
                         
-                        const viewUrl = `https://github.com/${owner}/${repo}/blob/${branch}/downloaded_datasets/${file.name}`;
-                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/downloaded_datasets/${file.name}`;
-                        
-                        // Show 50 most recent entries
                         const recent = data.slice(Math.max(0, data.length - 50)).reverse();
+                        
+                        // Extract dataset key from filename (e.g., "Organization_Information_changelog.csv" -> "Organization_Information")
+                        const datasetKey = file.name.replace('_changelog.csv', '');
+                        
+                        // Filter out rows where the field is a language variant we shouldn't display
+                        const filteredRecent = recent.filter(row => {
+                            const fieldName = row.field || '';
+                            return !shouldSkipField(datasetKey, fieldName);
+                        });
                         
                         html += `<div class="dataset">
                             <div class="dataset-header">
                                 <h2>${datasetName}</h2>
                                 <div class="dataset-links">
-                                    <a href="${viewUrl}" target="_blank" class="dataset-link-btn view-btn">📊 View on GitHub</a>
-                                    <a href="${downloadUrl}" download class="dataset-link-btn">⬇ Raw CSV</a>
+                                    <a href="${viewUrl}" target="_blank" class="dataset-link-btn view-btn">${getText('view_on_github')}</a>
+                                    <a href="${downloadUrl}" download class="dataset-link-btn">${getText('raw_csv')}</a>
                                 </div>
                             </div>`;
                         
-                        if (recent.length === 0) {
-                            html += '<p class="no-changes">No changes tracked yet.</p>';
+                        if (filteredRecent.length === 0) {
+                            html += `<p class="no-changes">${getText('no_changes')}</p>`;
                         } else {
                             html += `<div class="scrollable-table-wrapper" style="max-height: 500px;">
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Date</th>
-                                            <th>Event</th>
-                                            <th>ID</th>
-                                            <th>Field</th>
-                                            <th>Old Value</th>
-                                            <th>New Value</th>
+                                            <th>${getText('table_headers.date')}</th>
+                                            <th>${getText('table_headers.event')}</th>
+                                            <th>${getText('table_headers.id')}</th>
+                                            <th>${getText('table_headers.entity_name')}</th>
+                                            <th>${getText('table_headers.field')}</th>
+                                            <th>${getText('table_headers.old_value')}</th>
+                                            <th>${getText('table_headers.new_value')}</th>
                                         </tr>
                                     </thead>
                                     <tbody>`;
                             
-                            for (const row of recent) {
+                            for (const row of filteredRecent) {
                                 const event = row.event || '';
                                 const eventClass = getEventClass(event);
+                                const eventLabel = getEventLabel(event);
+                                const fieldLabel = getFieldLabel(file.name, row.field || '');
+                                const entityNameField = getEntityNameFieldForDataset(datasetKey);
+                                const entityName = entityNameField ? (row[entityNameField] || '') : '';
                                 
                                 html += `<tr>
                                     <td>${row.date || ''}</td>
-                                    <td><span class="${eventClass}">${event}</span></td>
+                                    <td><span class="${eventClass}">${eventLabel}</span></td>
                                     <td>${row.id || ''}</td>
-                                    <td>${row.field || '-'}</td>
+                                    <td>${entityName || '-'}</td>
+                                    <td>${fieldLabel || '-'}</td>
                                     <td><code>${(row.old_value || '').substring(0, 100)}</code></td>
                                     <td><code>${(row.new_value || '').substring(0, 100)}</code></td>
                                 </tr>`;
@@ -359,17 +456,22 @@
                 
                 if (!html) {
                     document.getElementById('content').innerHTML = 
-                        '<div class="error">Could not load any changelog data.</div>';
+                        `<div class="error">${getText('error_loading')} Could not load data.</div>`;
                 } else {
                     document.getElementById('content').innerHTML = html;
                 }
             } catch (error) {
                 document.getElementById('content').innerHTML = 
-                    `<div class="error">Error loading changelogs: ${error.message}</div>`;
+                    `<div class="error">${getText('error_loading')} ${error.message}</div>`;
             }
         }
         
-        loadChangelogs();
+        async function init() {
+            await loadMetadata();
+            loadChangelogs();
+        }
+        
+        init();
     </script>
 </body>
 </html>
