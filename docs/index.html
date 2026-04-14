@@ -212,7 +212,7 @@
         
         async function loadMetadata() {
             try {
-                const response = await fetch('./downloaded_datasets/metadata.json');
+                const response = await fetch('./metadata.json');
                 metadata = await response.json();
             } catch (err) {
                 console.error('Error loading metadata:', err);
