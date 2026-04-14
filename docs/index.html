@@ -394,7 +394,7 @@
             
             try {
                 const response = await fetch(
-                    `https://api.github.com/repos/${owner}/${repo}/contents/downloaded_datasets`
+                    `https://api.github.com/repos/${owner}/${repo}/contents/changelogs`
                 );
                 const files = await response.json();
                 
@@ -419,8 +419,8 @@
                         }
                         
                         const datasetName = getDatasetName(file.name);
-                        const viewUrl = `https://github.com/${owner}/${repo}/blob/main/downloaded_datasets/${file.name}`;
-                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/downloaded_datasets/${file.name}`;
+                        const viewUrl = `https://github.com/${owner}/${repo}/blob/main/changelogs/${file.name}`;
+                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/changelogs/${file.name}`;
                         
                         const recent = data.slice(Math.max(0, data.length - 50)).reverse();
                         
@@ -459,8 +459,9 @@
                                 const eventClass = getEventClass(event);
                                 const eventLabel = getEventLabel(event);
                                 const fieldLabel = getFieldLabel(file.name, row.field || '');
-                                const entityNameField = getEntityNameFieldForDataset(datasetKey);
-                                const entityName = entityNameField ? (row[entityNameField] || '') : '';
+                                const entityName = currentLanguage === 'en' 
+                                    ? (row.entity_name_en || row.entity_name || '') 
+                                    : (row.entity_name_fr || row.entity_name || '');
                                 
                                 html += `<tr>
                                     <td>${row.date || ''}</td>

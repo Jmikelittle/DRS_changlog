@@ -17,11 +17,32 @@ def sanitize_filename(name):
         name += '.csv'
     return name
 
-def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_datasets"):
+def get_entity_name_fields(df):
+    """
+    Determine which fields contain the entity names for a dataset (EN and FR variants).
+    Returns a dict with 'en' and 'fr' keys, or empty dict if not found.
+    Prioritize by likelihood: harmonized_name/nom_harmonise, legal_title/appellation_legale, preferred_name/nom_prefere
+    """
+    pairs = [
+        ('harmonized_name', 'nom_harmonise'),
+        ('legal_title', 'appellation_legale'),
+        ('preferred_name', 'nom_prefere')
+    ]
+    for en_field, fr_field in pairs:
+        if en_field in df.columns and fr_field in df.columns:
+            return {'en': en_field, 'fr': fr_field}
+        if en_field in df.columns:
+            return {'en': en_field, 'fr': None}
+        if fr_field in df.columns:
+            return {'en': None, 'fr': fr_field}
+    return {}
+
+def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_datasets", changelog_dir="changelogs"):
     """
     Downloads datasets and tracks changes in one unified process.
     """
     os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(changelog_dir, exist_ok=True)
 
     # Step 1: Parse README to find dataset links
     try:
@@ -74,7 +95,7 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
     # Step 2: Download, compare, and track each dataset
     for index, (filename, url) in enumerate(datasets, start=1):
         filepath = os.path.join(output_dir, filename)
-        changelog_path = os.path.join(output_dir, filename.replace('.csv', '_changelog.csv'))
+        changelog_path = os.path.join(changelog_dir, filename.replace('.csv', '_changelog.csv'))
         
         print(f"[{index}/{len(datasets)}] Processing '{filename}'...")
         print(f"  Downloading from: {url}")
@@ -92,6 +113,9 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                 engine='python',
                 encoding='utf-8'
             ).fillna("")
+            
+            # Determine the entity name fields for this dataset
+            entity_name_fields = get_entity_name_fields(new_df)
             
             # Check if old version exists
             changelog_entries = []
@@ -111,14 +135,24 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                         "event": "",
                         "field": "",
                         "old_value": "",
-                        "new_value": ""
+                        "new_value": "",
+                        "entity_name_en": "",
+                        "entity_name_fr": ""
                     }
                     
                     if row['_merge'] == 'left_only':
                         entry["event"] = "DELETED"
+                        if entity_name_fields.get('en'):
+                            entry["entity_name_en"] = str(row[f"{entity_name_fields['en']}_old"]) if f"{entity_name_fields['en']}_old" in row else str(row[entity_name_fields['en']])
+                        if entity_name_fields.get('fr'):
+                            entry["entity_name_fr"] = str(row[f"{entity_name_fields['fr']}_old"]) if f"{entity_name_fields['fr']}_old" in row else str(row[entity_name_fields['fr']])
                         changelog_entries.append(entry)
                     elif row['_merge'] == 'right_only':
                         entry["event"] = "ADDED"
+                        if entity_name_fields.get('en'):
+                            entry["entity_name_en"] = str(row[entity_name_fields['en']])
+                        if entity_name_fields.get('fr'):
+                            entry["entity_name_fr"] = str(row[entity_name_fields['fr']])
                         changelog_entries.append(entry)
                     else:
                         # Check for value updates
@@ -133,6 +167,10 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                                 change_entry["field"] = col
                                 change_entry["old_value"] = old_val
                                 change_entry["new_value"] = new_val
+                                if entity_name_fields.get('en'):
+                                    change_entry["entity_name_en"] = str(row[f"{entity_name_fields['en']}_new"])
+                                if entity_name_fields.get('fr'):
+                                    change_entry["entity_name_fr"] = str(row[f"{entity_name_fields['fr']}_new"])
                                 changelog_entries.append(change_entry)
                 
                 # Write changelog entries if any exist
