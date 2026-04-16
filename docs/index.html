@@ -398,11 +398,12 @@
                 );
                 const files = await response.json();
                 if (!response.ok || !Array.isArray(files)) {
-                    let apiMessage = !response.ok
+                    const isHttpError = !response.ok;
+                    let apiMessage = isHttpError
                         ? `GitHub API error (HTTP ${response.status})`
                         : `Unexpected response (status ${response.status})`;
                     if (files && files.message) {
-                        apiMessage = !response.ok
+                        apiMessage = isHttpError
                             ? `${apiMessage}: ${files.message}`
                             : files.message;
                     }
