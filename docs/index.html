@@ -397,6 +397,12 @@
                     `https://api.github.com/repos/${owner}/${repo}/contents/changelogs`
                 );
                 const files = await response.json();
+                if (!Array.isArray(files)) {
+                    const apiMessage = files && files.message
+                        ? files.message
+                        : `Unexpected response (status ${response.status})`;
+                    throw new Error(`Could not load changelog file list: ${apiMessage}`);
+                }
                 
                 const changelogFiles = files.filter(f => f.name.includes('_changelog.csv'));
                 
