@@ -1,9 +1,9 @@
-date,dataset,id,event,field,old_value,new_value
-2026-04-14,Organization_Information,2281,UPDATED,abbreviation,,OIC
-2026-04-14,Organization_Information,2281,UPDATED,abreviation,,CI
-2026-04-14,Organization_Information,2282,UPDATED,abbreviation,,OPC
-2026-04-14,Organization_Information,2282,UPDATED,abreviation,,CPVP
-2026-04-14,Organization_Information,2287,UPDATED,abbreviation,,SCC
-2026-04-14,Organization_Information,2287,UPDATED,abreviation,,CSC
-2026-04-14,Organization_Information,2296,UPDATED,abbreviation,,LDC
-2026-04-14,Organization_Information,2296,UPDATED,abreviation,,LDC
+date,dataset,id,entity_name_en,entity_name_fr,event,field,old_value,new_value
+2026-04-14,Organization_Information,2281,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada,UPDATED,abbreviation,,OIC
+2026-04-14,Organization_Information,2281,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada,UPDATED,abreviation,,CI
+2026-04-14,Organization_Information,2282,Office of the Privacy Commissioner of Canada,Commissariat à la protection de la vie privée du Canada,UPDATED,abbreviation,,OPC
+2026-04-14,Organization_Information,2282,Office of the Privacy Commissioner of Canada,Commissariat à la protection de la vie privée du Canada,UPDATED,abreviation,,CPVP
+2026-04-14,Organization_Information,2287,Registrar of the Supreme Court of Canada,Registraire de la Cour suprême du Canada,UPDATED,abbreviation,,SCC
+2026-04-14,Organization_Information,2287,Registrar of the Supreme Court of Canada,Registraire de la Cour suprême du Canada,UPDATED,abreviation,,CSC
+2026-04-14,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,abbreviation,,LDC
+2026-04-14,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,abreviation,,LDC
