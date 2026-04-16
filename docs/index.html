@@ -398,12 +398,13 @@
                 );
                 const files = await response.json();
                 if (!response.ok || !Array.isArray(files)) {
-                    let apiMessage = `Unexpected response (status ${response.status})`;
-                    if (!response.ok) {
-                        apiMessage = `HTTP ${response.status}`;
-                    }
+                    let apiMessage = !response.ok
+                        ? `GitHub API error (HTTP ${response.status})`
+                        : `Unexpected response (status ${response.status})`;
                     if (files && files.message) {
-                        apiMessage = files.message;
+                        apiMessage = !response.ok
+                            ? `${apiMessage}: ${files.message}`
+                            : files.message;
                     }
                     throw new Error(`Could not load changelog file list: ${apiMessage}`);
                 }
