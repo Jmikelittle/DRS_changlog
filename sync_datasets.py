@@ -37,7 +37,73 @@ def get_entity_name_fields(df):
             return {'en': None, 'fr': fr_field}
     return {}
 
-def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_datasets", changelog_dir="changelogs"):
+def update_html_with_changelogs(changelog_dir="changelogs", html_path="docs/index.html"):
+    """
+    Reads all changelog CSV files and updates the HTML file with embedded data.
+    """
+    try:
+        # Get all changelog CSV files
+        changelog_files = [f for f in os.listdir(changelog_dir) if f.endswith('_changelog.csv')]
+        
+        if not changelog_files:
+            print("No changelog files found. Skipping HTML update.")
+            return
+        
+        # Build embedded changelogs object
+        embedded_data = {}
+        for filename in sorted(changelog_files):
+            filepath = os.path.join(changelog_dir, filename)
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    csv_content = f.read()
+                embedded_data[filename] = csv_content
+            except (IOError, OSError) as e:
+                print(f"  -> Error reading {filename}: {e}")
+                continue
+        
+        # Read the HTML file
+        try:
+            with open(html_path, 'r', encoding='utf-8') as f:
+                html_content = f.read()
+        except (IOError, OSError) as e:
+            print(f"Error reading HTML file: {e}")
+            return
+        
+        # Generate the new embedded data JavaScript
+        js_code = "        // Embedded changelog data\n        const embeddedChangelogs = {\n"
+        
+        for filename, csv_content in embedded_data.items():
+            # Escape special characters in CSV content for JavaScript string
+            # Use backticks (template literals) to handle multi-line strings more easily
+            escaped_content = csv_content.replace('\\', '\\\\').replace('`', '\\`')
+            js_code += f"            '{filename}': `{escaped_content}`,\n"
+        
+        # Remove trailing comma from last entry
+        js_code = js_code.rstrip(',\n') + '\n        };\n'
+        
+        # Find and replace the embedded data section
+        # Look for the pattern: // Embedded changelog data ... const embeddedChangelogs = { ... };
+        pattern = r'        // Embedded changelog data\s+const embeddedChangelogs = \{[^}]*\};'
+        
+        if re.search(pattern, html_content):
+            html_content = re.sub(pattern, js_code.rstrip(), html_content)
+            print(f"Updated HTML file with {len(embedded_data)} changelog(s).")
+        else:
+            print("Warning: Could not find embeddedChangelogs pattern in HTML. Skipping HTML update.")
+            return
+        
+        # Write updated HTML
+        try:
+            with open(html_path, 'w', encoding='utf-8') as f:
+                f.write(html_content)
+            print(f"  -> Successfully updated {html_path}\n")
+        except (IOError, OSError) as e:
+            print(f"Error writing HTML file: {e}\n")
+    except (IOError, OSError) as e:
+        print(f"Error updating HTML with changelogs: {e}\n")
+
+
+def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_datasets", changelog_dir="changelogs", html_path="docs/index.html"):
     """
     Downloads datasets and tracks changes in one unified process.
     """
@@ -183,9 +249,9 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                         changelog_df.to_csv(changelog_path, index=False)
                         print(f"  -> Found {len(changelog_entries)} change(s). Created {os.path.basename(changelog_path)}")
                 else:
-                    print(f"  -> No changes detected.")
+                    print("  -> No changes detected.")
             else:
-                print(f"  -> First time tracking this dataset. Baseline saved.")
+                print("  -> First time tracking this dataset. Baseline saved.")
             
             # Save the new version
             new_df.to_csv(filepath, index=False)
@@ -193,8 +259,12 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
             
         except requests.exceptions.RequestException as e:
             print(f"  -> Failed to download. Error: {e}\n")
-        except Exception as e:
+        except (OSError, pd.errors.ParserError, KeyError, ValueError) as e:
             print(f"  -> Error processing dataset: {e}\n")
+    
+    # Update HTML with changelog data
+    print("Updating HTML with changelog data...")
+    update_html_with_changelogs(changelog_dir, html_path)
 
 if __name__ == "__main__":
     sync_and_track_datasets(readme_path="README.md")

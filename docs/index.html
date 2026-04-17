@@ -377,7 +377,7 @@
             document.getElementById('title').textContent = getText('title');
             document.getElementById('subtitle').textContent = getText('subtitle');
             
-            loadChangelogs();
+            loadChangelogsFromEmbedded();
         }
         
         function getEventLabel(event) {
@@ -388,130 +388,106 @@
             return event;
         }
         
-        async function loadChangelogs() {
+        // Embedded changelog data
+        const embeddedChangelogs = {
+            'Organization_Information_changelog.csv': `date,dataset,id,entity_name_en,entity_name_fr,event,field,old_value,new_value
+2026-04-14,Organization_Information,2281,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada,UPDATED,abbreviation,,OIC
+2026-04-14,Organization_Information,2281,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada,UPDATED,abreviation,,CI
+2026-04-14,Organization_Information,2282,Office of the Privacy Commissioner of Canada,Commissariat à la protection de la vie privée du Canada,UPDATED,abbreviation,,OPC
+2026-04-14,Organization_Information,2282,Office of the Privacy Commissioner of Canada,Commissariat à la protection de la vie privée du Canada,UPDATED,abreviation,,CPVP
+2026-04-14,Organization_Information,2287,Registrar of the Supreme Court of Canada,Registraire de la Cour suprême du Canada,UPDATED,abbreviation,,SCC
+2026-04-14,Organization_Information,2287,Registrar of the Supreme Court of Canada,Registraire de la Cour suprême du Canada,UPDATED,abreviation,,CSC
+2026-04-14,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,abbreviation,,LDC
+2026-04-14,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,abreviation,,LDC
+`
+        };
+        
+        function loadChangelogsFromEmbedded() {
             const owner = 'Jmikelittle';
             const repo = 'DRS_changlog';
             
-            try {
-                const response = await fetch(
-                    `https://api.github.com/repos/${owner}/${repo}/contents/changelogs`
-                );
-                const files = await response.json();
-                if (!response.ok || !Array.isArray(files)) {
-                    const isHttpError = !response.ok;
-                    let apiMessage = isHttpError
-                        ? `GitHub API error (HTTP ${response.status})`
-                        : `Unexpected response (status ${response.status})`;
-                    if (files && files.message) {
-                        apiMessage = isHttpError
-                            ? `${apiMessage}: ${files.message}`
-                            : files.message;
-                    }
-                    throw new Error(`Could not load changelog file list: ${apiMessage}`);
+            let html = '';
+            
+            for (const [filename, csvContent] of Object.entries(embeddedChangelogs)) {
+                const data = parseCSV(csvContent);
+                
+                if (data.length === 0) {
+                    continue;
                 }
                 
-                const changelogFiles = files.filter(f => f.name.includes('_changelog.csv'));
+                const datasetName = getDatasetName(filename);
+                const viewUrl = `https://github.com/${owner}/${repo}/blob/main/changelogs/${filename}`;
+                const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/changelogs/${filename}`;
                 
-                if (changelogFiles.length === 0) {
-                    document.getElementById('content').innerHTML = 
-                        `<p class="no-changes">${getText('no_data')}</p>`;
-                    return;
-                }
+                const recent = data.slice(Math.max(0, data.length - 50)).reverse();
                 
-                let html = '';
+                const datasetKey = filename.replace('_changelog.csv', '');
                 
-                for (const file of changelogFiles) {
-                    try {
-                        const contentResponse = await fetch(file.download_url);
-                        const csv = await contentResponse.text();
-                        const data = parseCSV(csv);
-                        
-                        if (data.length === 0) {
-                            continue;
-                        }
-                        
-                        const datasetName = getDatasetName(file.name);
-                        const viewUrl = `https://github.com/${owner}/${repo}/blob/main/changelogs/${file.name}`;
-                        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/changelogs/${file.name}`;
-                        
-                        const recent = data.slice(Math.max(0, data.length - 50)).reverse();
-                        
-                        // Extract dataset key from filename (e.g., "Organization_Information_changelog.csv" -> "Organization_Information")
-                        const datasetKey = file.name.replace('_changelog.csv', '');
-                        
-                        html += `<div class="dataset">
-                            <div class="dataset-header">
-                                <h2>${datasetName}</h2>
-                                <div class="dataset-links">
-                                    <a href="${viewUrl}" target="_blank" class="dataset-link-btn view-btn">${getText('view_on_github')}</a>
-                                    <a href="${downloadUrl}" download class="dataset-link-btn">${getText('raw_csv')}</a>
-                                </div>
-                            </div>`;
-                        
-                        if (recent.length === 0) {
-                            html += `<p class="no-changes">${getText('no_changes')}</p>`;
-                        } else {
-                            html += `<div class="scrollable-table-wrapper" style="max-height: 500px;">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>${getText('table_headers.date')}</th>
-                                            <th>${getText('table_headers.event')}</th>
-                                            <th>${getText('table_headers.id')}</th>
-                                            <th>${getText('table_headers.entity_name')}</th>
-                                            <th>${getText('table_headers.field')}</th>
-                                            <th>${getText('table_headers.old_value')}</th>
-                                            <th>${getText('table_headers.new_value')}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>`;
-                            
-                            for (const row of recent) {
-                                const event = row.event || '';
-                                const eventClass = getEventClass(event);
-                                const eventLabel = getEventLabel(event);
-                                const fieldLabel = getFieldLabel(file.name, row.field || '');
-                                const entityName = currentLanguage === 'en' 
-                                    ? (row.entity_name_en || row.entity_name || '') 
-                                    : (row.entity_name_fr || row.entity_name || '');
-                                
-                                html += `<tr>
-                                    <td>${row.date || ''}</td>
-                                    <td><span class="${eventClass}">${eventLabel}</span></td>
-                                    <td>${row.id || ''}</td>
-                                    <td>${entityName || '-'}</td>
-                                    <td>${fieldLabel || '-'}</td>
-                                    <td><code>${(row.old_value || '').substring(0, 100)}</code></td>
-                                    <td><code>${(row.new_value || '').substring(0, 100)}</code></td>
-                                </tr>`;
-                            }
-                            
-                            html += `</tbody>
-                                </table>
-                            </div>`;
-                        }
-                        
-                        html += `</div>`;
-                    } catch (err) {
-                        console.error(`Error loading ${file.name}:`, err);
-                    }
-                }
+                html += `<div class="dataset">
+                    <div class="dataset-header">
+                        <h2>${datasetName}</h2>
+                        <div class="dataset-links">
+                            <a href="${viewUrl}" target="_blank" class="dataset-link-btn view-btn">${getText('view_on_github')}</a>
+                            <a href="${downloadUrl}" download class="dataset-link-btn">${getText('raw_csv')}</a>
+                        </div>
+                    </div>`;
                 
-                if (!html) {
-                    document.getElementById('content').innerHTML = 
-                        `<div class="error">${getText('error_loading')} Could not load data.</div>`;
+                if (recent.length === 0) {
+                    html += `<p class="no-changes">${getText('no_changes')}</p>`;
                 } else {
-                    document.getElementById('content').innerHTML = html;
+                    html += `<div class="scrollable-table-wrapper" style="max-height: 500px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>${getText('table_headers.date')}</th>
+                                    <th>${getText('table_headers.event')}</th>
+                                    <th>${getText('table_headers.id')}</th>
+                                    <th>${getText('table_headers.entity_name')}</th>
+                                    <th>${getText('table_headers.field')}</th>
+                                    <th>${getText('table_headers.old_value')}</th>
+                                    <th>${getText('table_headers.new_value')}</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
+                    
+                    for (const row of recent) {
+                        const event = row.event || '';
+                        const eventClass = getEventClass(event);
+                        const eventLabel = getEventLabel(event);
+                        const entityName = currentLanguage === 'en' 
+                            ? (row.entity_name_en || row.entity_name || '') 
+                            : (row.entity_name_fr || row.entity_name || '');
+                        
+                        html += `<tr>
+                            <td>${row.date || ''}</td>
+                            <td><span class="${eventClass}">${eventLabel}</span></td>
+                            <td>${row.id || ''}</td>
+                            <td>${entityName || '-'}</td>
+                            <td>${row.field || '-'}</td>
+                            <td><code>${(row.old_value || '').substring(0, 100)}</code></td>
+                            <td><code>${(row.new_value || '').substring(0, 100)}</code></td>
+                        </tr>`;
+                    }
+                    
+                    html += `</tbody>
+                        </table>
+                    </div>`;
                 }
-            } catch (error) {
+                
+                html += `</div>`;
+            }
+            
+            if (!html) {
                 document.getElementById('content').innerHTML = 
-                    `<div class="error">${getText('error_loading')} ${error.message}</div>`;
+                    `<div class="error">${getText('error_loading')} No changelog data found.</div>`;
+            } else {
+                document.getElementById('content').innerHTML = html;
             }
         }
         
         async function init() {
             await loadMetadata();
-            loadChangelogs();
+            loadChangelogsFromEmbedded();
         }
         
         init();
