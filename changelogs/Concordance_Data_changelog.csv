@@ -1,0 +1,88 @@
+date,dataset,id,event,field,old_value,new_value,entity_name_en,entity_name_fr
+2026-06-10,Concordance_Data,2270,UPDATED,abbreviation,OAG,,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Concordance_Data,2270,UPDATED,abreviation,BVG,,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Concordance_Data,2270,UPDATED,infobaseID,,238.0,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Concordance_Data,2270,UPDATED,website,,www.oag-bvg.gc.ca,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Concordance_Data,2270,UPDATED,site_web,,www.oag-bvg.gc.ca,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Concordance_Data,2296,UPDATED,abbreviation,,LDC,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-10,Concordance_Data,2296,UPDATED,abreviation,,LDC,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-10,Concordance_Data,3423,UPDATED,infobaseID,,542.0,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants
+2026-06-10,Concordance_Data,3448,UPDATED,harmonized_name,Canada-Newfoundland and Labrador Offshore Petroleum Board,Canada-Newfoundland and Labrador Offshore Energy Regulator,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Concordance_Data,3448,UPDATED,nom_harmonise,Office Canada-Terre-Neuve-et-Labrador des hydrocarbures extracôtiers,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Concordance_Data,3448,UPDATED,infobaseID,,48.0,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Concordance_Data,3448,UPDATED,website,,https://www.cnloer.ca/,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Concordance_Data,3448,UPDATED,site_web,,https://www.rctnlee.ca/,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Concordance_Data,3469,UPDATED,harmonized_name,Hamilton Port Authority,Hamiton-Oshawa Port Authority (HOPA),Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Concordance_Data,3469,UPDATED,nom_harmonise,Administration portuaire de Hamilton,Administration portuaire de Hamilton-Oshawa (APHO),Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Concordance_Data,3469,UPDATED,infobaseID,,169.0,Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Concordance_Data,3469,UPDATED,website,,https://www.hopaports.ca/,Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Concordance_Data,3469,UPDATED,site_web,,https://www.aphoports.ca/,Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Concordance_Data,3499,UPDATED,infobaseID,,309.0,St. John’s International Airport Authority,St. John’s International Airport Authority
+2026-06-10,Concordance_Data,3500,UPDATED,infobaseID,,310.0,St. John’s Port Authority,Administration portuaire de St. John’s
+2026-06-10,Concordance_Data,3540,UPDATED,nom_harmonise,Recherche et développement pour la défense Canada,Recherche et développement pour la Défense Canada,Defence Research and Development Canada,Recherche et développement pour la Défense Canada
+2026-06-10,Concordance_Data,3548,DELETED,,,,,
+2026-06-10,Concordance_Data,3549,DELETED,,,,,
+2026-06-10,Concordance_Data,3552,DELETED,,,,,
+2026-06-10,Concordance_Data,3553,DELETED,,,,,
+2026-06-10,Concordance_Data,3554,DELETED,,,,,
+2026-06-10,Concordance_Data,3555,DELETED,,,,,
+2026-06-10,Concordance_Data,3556,DELETED,,,,,
+2026-06-10,Concordance_Data,3557,DELETED,,,,,
+2026-06-10,Concordance_Data,3558,DELETED,,,,,
+2026-06-10,Concordance_Data,3559,DELETED,,,,,
+2026-06-10,Concordance_Data,3560,DELETED,,,,,
+2026-06-10,Concordance_Data,3564,UPDATED,infobaseID,,289.0,Competition Tribunal,Tribunal de la concurrence
+2026-06-10,Concordance_Data,3565,DELETED,,,,,
+2026-06-10,Concordance_Data,3566,DELETED,,,,,
+2026-06-10,Concordance_Data,3568,DELETED,,,,,
+2026-06-10,Concordance_Data,3569,DELETED,,,,,
+2026-06-10,Concordance_Data,3570,DELETED,,,,,
+2026-06-10,Concordance_Data,3573,DELETED,,,,,
+2026-06-10,Concordance_Data,3575,DELETED,,,,,
+2026-06-10,Concordance_Data,3577,UPDATED,infobaseID,,2.0,Leader of the Government in the House of Commons,Leader du gouvernement à la Chambre des communes
+2026-06-10,Concordance_Data,3578,DELETED,,,,,
+2026-06-10,Concordance_Data,3579,UPDATED,infobaseID,,302.0,National Security and Intelligence Review Agency,Office de surveillance des activités en matière de sécurité nationale et de renseignement
+2026-06-10,Concordance_Data,3580,DELETED,,,,,
+2026-06-10,Concordance_Data,3581,DELETED,,,,,
+2026-06-10,Concordance_Data,3582,DELETED,,,,,
+2026-06-10,Concordance_Data,3583,UPDATED,infobaseID,,133.0,Office of the Ombudsman for the Department of National Defence and the Canadian Armed Forces,Bureau de l'ombudsman de la Défense nationale et des Forces armées canadiennes
+2026-06-10,Concordance_Data,3584,DELETED,,,,,
+2026-06-10,Concordance_Data,3586,DELETED,,,,,
+2026-06-10,Concordance_Data,3587,UPDATED,infobaseID,,290.0,Public Servants Disclosure Protection Tribunal Canada,Tribunal de la protection des fonctionnaires divulgateurs Canada
+2026-06-10,Concordance_Data,3588,DELETED,,,,,
+2026-06-10,Concordance_Data,3589,DELETED,,,,,
+2026-06-10,Concordance_Data,3590,DELETED,,,,,
+2026-06-10,Concordance_Data,3593,DELETED,,,,,
+2026-06-10,Concordance_Data,3596,DELETED,,,,,
+2026-06-10,Concordance_Data,3599,DELETED,,,,,
+2026-06-10,Concordance_Data,3600,DELETED,,,,,
+2026-06-10,Concordance_Data,3601,DELETED,,,,,
+2026-06-10,Concordance_Data,3602,DELETED,,,,,
+2026-06-10,Concordance_Data,3603,DELETED,,,,,
+2026-06-10,Concordance_Data,3604,DELETED,,,,,
+2026-06-10,Concordance_Data,3607,DELETED,,,,,
+2026-06-10,Concordance_Data,3608,DELETED,,,,,
+2026-06-10,Concordance_Data,3609,DELETED,,,,,
+2026-06-10,Concordance_Data,3614,DELETED,,,,,
+2026-06-10,Concordance_Data,3620,UPDATED,nom_harmonise,Musée canadien des droits de la personne,Musée canadien pour les droits de la personne,Canadian Museum for Human Rights,Musée canadien pour les droits de la personne
+2026-06-10,Concordance_Data,3635,UPDATED,nom_harmonise,La Corporation de développement des investissements du Canada,Corporation de développement des investissements du Canada,Canada Development Investment Corporation,Corporation de développement des investissements du Canada
+2026-06-10,Concordance_Data,3647,UPDATED,harmonized_name,Canadian Tourism Commission,Destination Canada,Destination Canada,Destination Canada
+2026-06-10,Concordance_Data,3647,UPDATED,nom_harmonise,Commission canadienne du tourisme,Destination Canada,Destination Canada,Destination Canada
+2026-06-10,Concordance_Data,3651,UPDATED,harmonized_name,Canada Post Corporation,Canada Post,Canada Post,Postes Canada
+2026-06-10,Concordance_Data,3651,UPDATED,nom_harmonise,Société canadienne des postes,Postes Canada,Canada Post,Postes Canada
+2026-06-10,Concordance_Data,3652,UPDATED,harmonized_name,Defence Construction (1951) Limited,Defence Construction Canada,Defence Construction Canada,Construction de Défense Canada
+2026-06-10,Concordance_Data,3652,UPDATED,nom_harmonise,Construction de Défense (1951) Limitée,Construction de Défense Canada,Defence Construction Canada,Construction de Défense Canada
+2026-06-10,Concordance_Data,3654,UPDATED,harmonized_name,Atlantic Pilotage Authority,Atlantic Pilotage Authority Canada,Atlantic Pilotage Authority Canada,Administration de pilotage de l’Atlantique
+2026-06-10,Concordance_Data,3656,UPDATED,harmonized_name,Great Lakes Pilotage Authority,Great Lakes Pilotage Authority Canada,Great Lakes Pilotage Authority Canada,Administration de pilotage des Grands Lacs Canada
+2026-06-10,Concordance_Data,3656,UPDATED,nom_harmonise,Administration de pilotage des Grands Lacs,Administration de pilotage des Grands Lacs Canada,Great Lakes Pilotage Authority Canada,Administration de pilotage des Grands Lacs Canada
+2026-06-10,Concordance_Data,3657,UPDATED,harmonized_name,Laurentian Pilotage Authority,Laurentian Pilotage Authority Canada,Laurentian Pilotage Authority Canada,Administration de pilotage des Laurentides Canada
+2026-06-10,Concordance_Data,3657,UPDATED,nom_harmonise,Administration de pilotage des Laurentides,Administration de pilotage des Laurentides Canada,Laurentian Pilotage Authority Canada,Administration de pilotage des Laurentides Canada
+2026-06-10,Concordance_Data,3659,UPDATED,harmonized_name,Pacific Pilotage Authority,Pacific Pilotage Authority Canada,Pacific Pilotage Authority Canada,Administration de pilotage du Pacifique Canada
+2026-06-10,Concordance_Data,3659,UPDATED,nom_harmonise,Administration de pilotage du Pacifique,Administration de pilotage du Pacifique Canada,Pacific Pilotage Authority Canada,Administration de pilotage du Pacifique Canada
+2026-06-10,Concordance_Data,3661,UPDATED,harmonized_name,The Federal Bridge Corporation Limited,Federal Bridge Corporation,Federal Bridge Corporation,Société des ponts fédéraux
+2026-06-10,Concordance_Data,3661,UPDATED,nom_harmonise,La Société des ponts fédéraux Limitée,Société des ponts fédéraux,Federal Bridge Corporation,Société des ponts fédéraux
+2026-06-10,Concordance_Data,3704,UPDATED,infobaseID,,326.0,Treasury Board,Conseil du Trésor
+2026-06-10,Concordance_Data,3708,ADDED,,,,,
+2026-06-10,Concordance_Data,3709,ADDED,,,,,
+2026-06-10,Concordance_Data,3710,ADDED,,,,,
+2026-06-10,Concordance_Data,3711,ADDED,,,,,

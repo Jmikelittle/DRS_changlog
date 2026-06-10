@@ -208,16 +208,16 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                     
                     if row['_merge'] == 'left_only':
                         entry["event"] = "DELETED"
-                        if entity_name_fields.get('en'):
-                            entry["entity_name_en"] = str(row[f"{entity_name_fields['en']}_old"]) if f"{entity_name_fields['en']}_old" in row else str(row[entity_name_fields['en']])
-                        if entity_name_fields.get('fr'):
-                            entry["entity_name_fr"] = str(row[f"{entity_name_fields['fr']}_old"]) if f"{entity_name_fields['fr']}_old" in row else str(row[entity_name_fields['fr']])
+                        if entity_name_fields.get('en') and entity_name_fields['en'] in row.index:
+                            entry["entity_name_en"] = str(row[entity_name_fields['en']])
+                        if entity_name_fields.get('fr') and entity_name_fields['fr'] in row.index:
+                            entry["entity_name_fr"] = str(row[entity_name_fields['fr']])
                         changelog_entries.append(entry)
                     elif row['_merge'] == 'right_only':
                         entry["event"] = "ADDED"
-                        if entity_name_fields.get('en'):
+                        if entity_name_fields.get('en') and entity_name_fields['en'] in row.index:
                             entry["entity_name_en"] = str(row[entity_name_fields['en']])
-                        if entity_name_fields.get('fr'):
+                        if entity_name_fields.get('fr') and entity_name_fields['fr'] in row.index:
                             entry["entity_name_fr"] = str(row[entity_name_fields['fr']])
                         changelog_entries.append(entry)
                     else:
@@ -225,17 +225,22 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                         for col in new_df.columns:
                             if col == pk:
                                 continue
-                            old_val = str(row[f"{col}_old"])
-                            new_val = str(row[f"{col}_new"])
+                            old_col = f"{col}_old"
+                            new_col = f"{col}_new"
+                            # Only process if both old and new versions exist
+                            if old_col not in row.index or new_col not in row.index:
+                                continue
+                            old_val = str(row[old_col])
+                            new_val = str(row[new_col])
                             if old_val != new_val:
                                 change_entry = entry.copy()
                                 change_entry["event"] = "UPDATED"
                                 change_entry["field"] = col
                                 change_entry["old_value"] = old_val
                                 change_entry["new_value"] = new_val
-                                if entity_name_fields.get('en'):
+                                if entity_name_fields.get('en') and f"{entity_name_fields['en']}_new" in row.index:
                                     change_entry["entity_name_en"] = str(row[f"{entity_name_fields['en']}_new"])
-                                if entity_name_fields.get('fr'):
+                                if entity_name_fields.get('fr') and f"{entity_name_fields['fr']}_new" in row.index:
                                     change_entry["entity_name_fr"] = str(row[f"{entity_name_fields['fr']}_new"])
                                 changelog_entries.append(change_entry)
                 

@@ -7,3 +7,121 @@ date,dataset,id,entity_name_en,entity_name_fr,event,field,old_value,new_value
 2026-04-14,Organization_Information,2287,Registrar of the Supreme Court of Canada,Registraire de la Cour suprême du Canada,UPDATED,abreviation,,CSC
 2026-04-14,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,abbreviation,,LDC
 2026-04-14,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,abreviation,,LDC
+2026-06-10,Organization_Information,2270,UPDATED,legal_title,Office of the Auditor General,Office of the Auditor General of Canada,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Organization_Information,2270,UPDATED,appellation_legale,Bureau du vérificateur général,Bureau du vérificateur général du Canada,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Organization_Information,2270,UPDATED,preferred_name,Office of the Auditor General of Canada,,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Organization_Information,2270,UPDATED,nom_prefere,Bureau du vérificateur général du Canada,,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Organization_Information,2270,UPDATED,abbreviation,OAG,,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Organization_Information,2270,UPDATED,abreviation,BVG,,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Organization_Information,2270,UPDATED,FAA_LGFP,1.1,,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada
+2026-06-10,Organization_Information,2281,UPDATED,harmonized_name,Office of the Information Commissioner of Canada,,,
+2026-06-10,Organization_Information,2281,UPDATED,nom_harmonise,Commissariat à l'information au Canada,,,
+2026-06-10,Organization_Information,2281,UPDATED,legal_title,Office of the Information Commissioner of Canada,Office of the Information Commissioner,,
+2026-06-10,Organization_Information,2281,UPDATED,appellation_legale,Commissariat à l'information au Canada,,,
+2026-06-10,Organization_Information,2281,UPDATED,lead_department,Department of Justice Canada,,,
+2026-06-10,Organization_Information,2281,UPDATED,ministere_responsable,Ministère de la Justice Canada,,,
+2026-06-10,Organization_Information,2281,UPDATED,FAA_LGFP,,4.0,,
+2026-06-10,Organization_Information,2281,UPDATED,status_statut,a,,,
+2026-06-10,Organization_Information,2296,UPDATED,harmonized_name,Leaders’ Debates Commission,,,
+2026-06-10,Organization_Information,2296,UPDATED,nom_harmonise,Commission des débats des chefs,,,
+2026-06-10,Organization_Information,2296,UPDATED,legal_title,Leaders’ Debates Commission,Leaders' Debates Commission,,
+2026-06-10,Organization_Information,2296,UPDATED,appellation_legale,Commission des débats des chefs,,,
+2026-06-10,Organization_Information,2296,UPDATED,lead_department,Privy Council Office,,,
+2026-06-10,Organization_Information,2296,UPDATED,ministere_responsable,Bureau du Conseil privé,,,
+2026-06-10,Organization_Information,2296,UPDATED,FAA_LGFP,,1.1,,
+2026-06-10,Organization_Information,2296,UPDATED,status_statut,a,,,
+2026-06-10,Organization_Information,3423,UPDATED,harmonized_name,"The Director, The Veterans’ Land Act",,,
+2026-06-10,Organization_Information,3423,UPDATED,nom_harmonise,Directeur des terres destinées aux anciens combattants,,,
+2026-06-10,Organization_Information,3423,UPDATED,legal_title,"The Director, The Veterans’ Land Act","The Director, The Veterans' Land Act",,
+2026-06-10,Organization_Information,3423,UPDATED,appellation_legale,Directeur des terres destinées aux anciens combattants,,,
+2026-06-10,Organization_Information,3423,UPDATED,FAA_LGFP,,4.0,,
+2026-06-10,Organization_Information,3423,UPDATED,status_statut,a,,,
+2026-06-10,Organization_Information,3448,UPDATED,harmonized_name,Canada-Newfoundland and Labrador Offshore Petroleum Board,Canada-Newfoundland and Labrador Offshore Energy Regulator,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Organization_Information,3448,UPDATED,nom_harmonise,Office Canada-Terre-Neuve-et-Labrador des hydrocarbures extracôtiers,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Organization_Information,3448,UPDATED,legal_title,Canada-Newfoundland and Labrador Offshore Petroleum Board,Canada-Newfoundland and Labrador Offshore Energy Regulator,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Organization_Information,3448,UPDATED,appellation_legale,Office Canada-Terre-Neuve-et-Labrador des hydrocarbures extracôtiers,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière,Canada-Newfoundland and Labrador Offshore Energy Regulator,Régie Canada-Terre-Neuve et Labrador de l'énergie extracôtière
+2026-06-10,Organization_Information,3469,UPDATED,harmonized_name,Hamilton Port Authority,Hamiton-Oshawa Port Authority (HOPA),Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Organization_Information,3469,UPDATED,nom_harmonise,Administration portuaire de Hamilton,Administration portuaire de Hamilton-Oshawa (APHO),Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Organization_Information,3469,UPDATED,legal_title,Hamilton Port Authority,Hamiton-Oshawa Port Authority (HOPA),Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Organization_Information,3469,UPDATED,appellation_legale,Administration portuaire de Hamilton,Administration portuaire de Hamilton-Oshawa (APHO),Hamiton-Oshawa Port Authority (HOPA),Administration portuaire de Hamilton-Oshawa (APHO)
+2026-06-10,Organization_Information,3540,UPDATED,nom_harmonise,Recherche et développement pour la défense Canada,Recherche et développement pour la Défense Canada,Defence Research and Development Canada,Recherche et développement pour la Défense Canada
+2026-06-10,Organization_Information,3548,DELETED,,,,,
+2026-06-10,Organization_Information,3549,DELETED,,,,,
+2026-06-10,Organization_Information,3552,DELETED,,,,,
+2026-06-10,Organization_Information,3553,DELETED,,,,,
+2026-06-10,Organization_Information,3554,DELETED,,,,,
+2026-06-10,Organization_Information,3555,DELETED,,,,,
+2026-06-10,Organization_Information,3556,DELETED,,,,,
+2026-06-10,Organization_Information,3557,DELETED,,,,,
+2026-06-10,Organization_Information,3558,DELETED,,,,,
+2026-06-10,Organization_Information,3559,DELETED,,,,,
+2026-06-10,Organization_Information,3560,DELETED,,,,,
+2026-06-10,Organization_Information,3561,UPDATED,status_statut,a,,Canadian War Museum,Musée canadien de la guerre
+2026-06-10,Organization_Information,3562,UPDATED,status_statut,a,,Communications Research Centre Canada,Centre de recherches sur les communications Canada
+2026-06-10,Organization_Information,3563,UPDATED,status_statut,a,,Competition Bureau Canada,Bureau de la concurrence Canada
+2026-06-10,Organization_Information,3564,UPDATED,status_statut,a,t,Competition Tribunal,Tribunal de la concurrence
+2026-06-10,Organization_Information,3564,UPDATED,end_date_fin,,2014.0,Competition Tribunal,Tribunal de la concurrence
+2026-06-10,Organization_Information,3565,DELETED,,,,,
+2026-06-10,Organization_Information,3566,DELETED,,,,,
+2026-06-10,Organization_Information,3568,DELETED,,,,,
+2026-06-10,Organization_Information,3569,DELETED,,,,,
+2026-06-10,Organization_Information,3570,DELETED,,,,,
+2026-06-10,Organization_Information,3571,UPDATED,status_statut,a,,Office of the Federal Ombudsperson for Victims Of Crime,Bureau de l'ombudsman fédéral des victimes d'actes criminels
+2026-06-10,Organization_Information,3572,UPDATED,status_statut,a,,Historic Sites and Monuments Board of Canada,Commission des lieux et monuments historiques du Canada
+2026-06-10,Organization_Information,3573,DELETED,,,,,
+2026-06-10,Organization_Information,3574,UPDATED,status_statut,a,,Intergovernmental Affairs,Affaires intergouvernementales
+2026-06-10,Organization_Information,3575,DELETED,,,,,
+2026-06-10,Organization_Information,3578,DELETED,,,,,
+2026-06-10,Organization_Information,3580,DELETED,,,,,
+2026-06-10,Organization_Information,3581,DELETED,,,,,
+2026-06-10,Organization_Information,3582,DELETED,,,,,
+2026-06-10,Organization_Information,3584,DELETED,,,,,
+2026-06-10,Organization_Information,3585,UPDATED,status_statut,a,,Office of the Procurement Ombudsman,Bureau de l'ombudsman de l'approvisionnement
+2026-06-10,Organization_Information,3586,DELETED,,,,,
+2026-06-10,Organization_Information,3587,UPDATED,status_statut,a,t,Public Servants Disclosure Protection Tribunal Canada,Tribunal de la protection des fonctionnaires divulgateurs Canada
+2026-06-10,Organization_Information,3587,UPDATED,end_date_fin,,2014.0,Public Servants Disclosure Protection Tribunal Canada,Tribunal de la protection des fonctionnaires divulgateurs Canada
+2026-06-10,Organization_Information,3588,DELETED,,,,,
+2026-06-10,Organization_Information,3589,DELETED,,,,,
+2026-06-10,Organization_Information,3590,DELETED,,,,,
+2026-06-10,Organization_Information,3591,UPDATED,status_statut,a,,Service Canada,Service Canada
+2026-06-10,Organization_Information,3593,DELETED,,,,,
+2026-06-10,Organization_Information,3594,UPDATED,status_statut,a,,Office of the Taxpayers' Ombudsperson,Bureau de l'ombudsman des contribuables
+2026-06-10,Organization_Information,3595,UPDATED,status_statut,a,,Office of the Veterans' Ombudsman,Bureau de l'ombud des vétérans
+2026-06-10,Organization_Information,3596,DELETED,,,,,
+2026-06-10,Organization_Information,3599,DELETED,,,,,
+2026-06-10,Organization_Information,3600,DELETED,,,,,
+2026-06-10,Organization_Information,3601,DELETED,,,,,
+2026-06-10,Organization_Information,3602,DELETED,,,,,
+2026-06-10,Organization_Information,3603,DELETED,,,,,
+2026-06-10,Organization_Information,3604,DELETED,,,,,
+2026-06-10,Organization_Information,3605,UPDATED,status_statut,a,,Geological Survey of Canada,Commission géologique du Canada
+2026-06-10,Organization_Information,3606,UPDATED,status_statut,a,,Geomatics Canada,Géomatique Canada
+2026-06-10,Organization_Information,3607,DELETED,,,,,
+2026-06-10,Organization_Information,3608,DELETED,,,,,
+2026-06-10,Organization_Information,3609,DELETED,,,,,
+2026-06-10,Organization_Information,3611,UPDATED,status_statut,a,,Office of the Chief Science Advisor of Canada,Bureau du conseiller scientifique en chef du Canada
+2026-06-10,Organization_Information,3612,UPDATED,status_statut,a,,Policy Horizons Canada,Horizons de politiques Canada
+2026-06-10,Organization_Information,3613,UPDATED,status_statut,a,,Ship-source Oil Pollution Fund,Caisse d'indemnisation des dommages dus à la pollution par les hydrocarbures causée par les navires
+2026-06-10,Organization_Information,3614,DELETED,,,,,
+2026-06-10,Organization_Information,3620,UPDATED,nom_harmonise,Musée canadien des droits de la personne,Musée canadien pour les droits de la personne,Canadian Museum for Human Rights,Musée canadien pour les droits de la personne
+2026-06-10,Organization_Information,3635,UPDATED,nom_harmonise,La Corporation de développement des investissements du Canada,Corporation de développement des investissements du Canada,Canada Development Investment Corporation,Corporation de développement des investissements du Canada
+2026-06-10,Organization_Information,3647,UPDATED,harmonized_name,Canadian Tourism Commission,Destination Canada,Destination Canada,Destination Canada
+2026-06-10,Organization_Information,3647,UPDATED,nom_harmonise,Commission canadienne du tourisme,Destination Canada,Destination Canada,Destination Canada
+2026-06-10,Organization_Information,3651,UPDATED,harmonized_name,Canada Post Corporation,Canada Post,Canada Post,Postes Canada
+2026-06-10,Organization_Information,3651,UPDATED,nom_harmonise,Société canadienne des postes,Postes Canada,Canada Post,Postes Canada
+2026-06-10,Organization_Information,3652,UPDATED,harmonized_name,Defence Construction (1951) Limited,Defence Construction Canada,Defence Construction Canada,Construction de Défense Canada
+2026-06-10,Organization_Information,3652,UPDATED,nom_harmonise,Construction de Défense (1951) Limitée,Construction de Défense Canada,Defence Construction Canada,Construction de Défense Canada
+2026-06-10,Organization_Information,3654,UPDATED,harmonized_name,Atlantic Pilotage Authority,Atlantic Pilotage Authority Canada,Atlantic Pilotage Authority Canada,Administration de pilotage de l’Atlantique
+2026-06-10,Organization_Information,3656,UPDATED,harmonized_name,Great Lakes Pilotage Authority,Great Lakes Pilotage Authority Canada,Great Lakes Pilotage Authority Canada,Administration de pilotage des Grands Lacs Canada
+2026-06-10,Organization_Information,3656,UPDATED,nom_harmonise,Administration de pilotage des Grands Lacs,Administration de pilotage des Grands Lacs Canada,Great Lakes Pilotage Authority Canada,Administration de pilotage des Grands Lacs Canada
+2026-06-10,Organization_Information,3657,UPDATED,harmonized_name,Laurentian Pilotage Authority,Laurentian Pilotage Authority Canada,Laurentian Pilotage Authority Canada,Administration de pilotage des Laurentides Canada
+2026-06-10,Organization_Information,3657,UPDATED,nom_harmonise,Administration de pilotage des Laurentides,Administration de pilotage des Laurentides Canada,Laurentian Pilotage Authority Canada,Administration de pilotage des Laurentides Canada
+2026-06-10,Organization_Information,3659,UPDATED,harmonized_name,Pacific Pilotage Authority,Pacific Pilotage Authority Canada,Pacific Pilotage Authority Canada,Administration de pilotage du Pacifique Canada
+2026-06-10,Organization_Information,3659,UPDATED,nom_harmonise,Administration de pilotage du Pacifique,Administration de pilotage du Pacifique Canada,Pacific Pilotage Authority Canada,Administration de pilotage du Pacifique Canada
+2026-06-10,Organization_Information,3661,UPDATED,harmonized_name,The Federal Bridge Corporation Limited,Federal Bridge Corporation,Federal Bridge Corporation,Société des ponts fédéraux
+2026-06-10,Organization_Information,3661,UPDATED,nom_harmonise,La Société des ponts fédéraux Limitée,Société des ponts fédéraux,Federal Bridge Corporation,Société des ponts fédéraux
+2026-06-10,Organization_Information,3705,UPDATED,status_statut,a,,Federal Public Sector Labour Relations and Employment Board,Commission des relations de travail et de l’emploi dans le secteur public fédéral
+2026-06-10,Organization_Information,3708,ADDED,,,,,
+2026-06-10,Organization_Information,3709,ADDED,,,,,
+2026-06-10,Organization_Information,3710,ADDED,,,,,
+2026-06-10,Organization_Information,3711,ADDED,,,,,
