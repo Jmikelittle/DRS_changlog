@@ -125,3 +125,47 @@ date,dataset,id,entity_name_en,entity_name_fr,event,field,old_value,new_value
 2026-06-10,Organization_Information,3709,ADDED,,,,,
 2026-06-10,Organization_Information,3710,ADDED,,,,,
 2026-06-10,Organization_Information,3711,ADDED,,,,,
+2026-06-11,Organization_Information,2281,UPDATED,harmonized_name,,Office of the Information Commissioner of Canada,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,nom_harmonise,,Commissariat à l'information au Canada,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,legal_title,Office of the Information Commissioner,Office of the Information Commissioner of Canada,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,appellation_legale,,Commissariat à l'information au Canada,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,lead_department,,Department of Justice Canada,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,ministere_responsable,,Ministère de la Justice Canada,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,FAA_LGFP,4.0,,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,status_statut,,a,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada
+2026-06-11,Organization_Information,2281,UPDATED,harmonized_name,Office of the Information Commissioner of Canada,,,
+2026-06-11,Organization_Information,2281,UPDATED,nom_harmonise,Commissariat à l'information au Canada,,,
+2026-06-11,Organization_Information,2281,UPDATED,legal_title,Office of the Information Commissioner of Canada,Office of the Information Commissioner,,
+2026-06-11,Organization_Information,2281,UPDATED,appellation_legale,Commissariat à l'information au Canada,,,
+2026-06-11,Organization_Information,2281,UPDATED,lead_department,Department of Justice Canada,,,
+2026-06-11,Organization_Information,2281,UPDATED,ministere_responsable,Ministère de la Justice Canada,,,
+2026-06-11,Organization_Information,2281,UPDATED,FAA_LGFP,,4.0,,
+2026-06-11,Organization_Information,2281,UPDATED,status_statut,a,,,
+2026-06-11,Organization_Information,2296,UPDATED,harmonized_name,,Leaders’ Debates Commission,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,nom_harmonise,,Commission des débats des chefs,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,legal_title,Leaders' Debates Commission,Leaders’ Debates Commission,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,appellation_legale,,Commission des débats des chefs,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,lead_department,,Privy Council Office,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,ministere_responsable,,Bureau du Conseil privé,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,FAA_LGFP,1.1,,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,status_statut,,a,Leaders’ Debates Commission,Commission des débats des chefs
+2026-06-11,Organization_Information,2296,UPDATED,harmonized_name,Leaders’ Debates Commission,,,
+2026-06-11,Organization_Information,2296,UPDATED,nom_harmonise,Commission des débats des chefs,,,
+2026-06-11,Organization_Information,2296,UPDATED,legal_title,Leaders’ Debates Commission,Leaders' Debates Commission,,
+2026-06-11,Organization_Information,2296,UPDATED,appellation_legale,Commission des débats des chefs,,,
+2026-06-11,Organization_Information,2296,UPDATED,lead_department,Privy Council Office,,,
+2026-06-11,Organization_Information,2296,UPDATED,ministere_responsable,Bureau du Conseil privé,,,
+2026-06-11,Organization_Information,2296,UPDATED,FAA_LGFP,,1.1,,
+2026-06-11,Organization_Information,2296,UPDATED,status_statut,a,,,
+2026-06-11,Organization_Information,3423,UPDATED,harmonized_name,,"The Director, The Veterans’ Land Act","The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants
+2026-06-11,Organization_Information,3423,UPDATED,nom_harmonise,,Directeur des terres destinées aux anciens combattants,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants
+2026-06-11,Organization_Information,3423,UPDATED,legal_title,"The Director, The Veterans' Land Act","The Director, The Veterans’ Land Act","The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants
+2026-06-11,Organization_Information,3423,UPDATED,appellation_legale,,Directeur des terres destinées aux anciens combattants,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants
+2026-06-11,Organization_Information,3423,UPDATED,FAA_LGFP,4.0,,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants
+2026-06-11,Organization_Information,3423,UPDATED,status_statut,,a,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants
+2026-06-11,Organization_Information,3423,UPDATED,harmonized_name,"The Director, The Veterans’ Land Act",,,
+2026-06-11,Organization_Information,3423,UPDATED,nom_harmonise,Directeur des terres destinées aux anciens combattants,,,
+2026-06-11,Organization_Information,3423,UPDATED,legal_title,"The Director, The Veterans’ Land Act","The Director, The Veterans' Land Act",,
+2026-06-11,Organization_Information,3423,UPDATED,appellation_legale,Directeur des terres destinées aux anciens combattants,,,
+2026-06-11,Organization_Information,3423,UPDATED,FAA_LGFP,,4.0,,
+2026-06-11,Organization_Information,3423,UPDATED,status_statut,a,,,
