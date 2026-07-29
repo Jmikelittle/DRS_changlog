@@ -198,12 +198,12 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                         "date": timestamp,
                         "dataset": filename.replace('.csv', ''),
                         "id": str(row[pk]),
+                        "entity_name_en": "",
+                        "entity_name_fr": "",
                         "event": "",
                         "field": "",
                         "old_value": "",
-                        "new_value": "",
-                        "entity_name_en": "",
-                        "entity_name_fr": ""
+                        "new_value": ""
                     }
                     
                     if row['_merge'] == 'left_only':
