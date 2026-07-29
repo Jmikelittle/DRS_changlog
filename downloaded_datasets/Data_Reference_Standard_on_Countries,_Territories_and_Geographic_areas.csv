@@ -110,7 +110,7 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1008010.0,10080.0,the Republic of Indonesia,la République d’Indonésie,Indonesia,Indonésie,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1949-01-01,2100-01-01,,,,,ID,IDN,360.0,2023-11-28
 1008110.0,10081.0,the Republic of Niger,la République du Niger,Niger,Niger,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1960-01-01,2100-01-01,,,,,NE,NER,562.0,2023-11-28
 1008210.0,10082.0,Bermuda,Bermudes (les),Bermuda,Bermudes (les),1.0,ACTIVE,ACTIF,6.0,Non-Self-Governing Territory,Territoire non autonome,1900-01-01,2100-01-01,,,,10135.0,BM,BMU,60.0,2023-11-28
-1008310.0,10083.0,The Territory of Cocos (Keeling) Islands,Le territoire des Îles Cocos (Keeling),Cocos (Keeling) Islands,Cocos (les Îles)/ Keeling (les Îles),1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1955-01-01,2100-01-01,,,,10274.0,CC,CCK,166.0,2023-11-28
+1008310.0,10083.0,The Territory of Cocos (Keeling) Islands,Le territoire des Îles Cocos (Keeling),Cocos (Keeling) Islands,Cocos (les Îles)/Keeling (les Îles),1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1955-01-01,2100-01-01,,,,10274.0,CC,CCK,166.0,2023-11-28
 1008410.0,10084.0,the Republic of Trinidad and Tobago,la République de Trinité-et-Tobago,Trinidad and Tobago,Trinité-et-Tobago,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1962-01-01,2100-01-01,,,,,TT,TTO,780.0,2023-11-28
 1008509.0,10085.0,Belarus,Bélarus (le),Belarus,Bélarus (le),2.0,INACTIVE,INACTIF,1.0,Country,Pays,1918-01-01,1990-12-31,,,,,BY,BLR,112.0,2023-11-28
 1008510.0,10085.0,the Republic of Belarus,la République du Bélarus,Belarus,Bélarus,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1991-01-01,2100-01-01,,,,,BY,BLR,112.0,2023-11-28
@@ -232,7 +232,7 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1017210.0,10172.0,Vatican City State,État de la Cité du Vatican,Vatican City State,État de la Cité du Vatican,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1929-01-01,2100-01-01,,,,,VA,VAT,336.0,2023-11-28
 1017310.0,10173.0,Collectivity of Saint Pierre and Miquelon,Collectivité de Saint-Pierre-et-Miquelon,Saint Pierre and Miquelon (French Republic),Saint-Pierre-et-Miquelon (République française),1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1900-01-01,2100-01-01,,,,10006.0,PM,SPM,666.0,2023-12-20
 1017409.0,10174.0,the Territory of Heard Island and McDonald Islands,Le territoire de îles Heard-et-MacDonald,Heard Island and McDonald Islands,îles Heard-et-MacDonald,2.0,INACTIVE,INACTIF,2.0,Territory,Territoire,1910-01-01,1946-12-31,,,,10274.0,HM,HMD,334.0,2024-05-15
-1017410.0,10174.0,the Territory of Heard Island and McDonald Islands,Le territoire de îles Heard-et-MacDonald,Heard Island and McDonald Islands,îles Heard-et-MacDonald,1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1947-01-01,2100-01-01,,,,10274.0,HM,HMD,334.0,2024-05-15
+1017410.0,10174.0,the Territory of Heard Island and McDonald Islands,Le territoire de îles Heard-et-MacDonald,Heard Island and McDonald Islands,Îles Heard-et-MacDonald,1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1947-01-01,2100-01-01,,,,10274.0,HM,HMD,334.0,2024-05-15
 1017610.0,10176.0,the Republic of Peru,la République du Pérou,Peru,Pérou,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1900-01-01,2100-01-01,,,,,PE,PER,604.0,2023-11-28
 1017710.0,10177.0,the Virgin Islands of the United States,Les Îles vierges des États-Unis,US Virgin Islands,Vierges des États-Unis (les Îles),1.0,ACTIVE,ACTIF,6.0,Non-Self-Governing Territory,Territoire non autonome,1917-01-01,2100-01-01,,,,10194.0,VI,VIR,850.0,2023-11-28
 1017810.0,10178.0,the Kingdom of Saudi Arabia,le Royaume d’Arabie saoudite,Saudi Arabia,Arabie saoudite,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1932-01-01,2100-01-01,,,,,SA,SAU,682.0,2023-11-28
@@ -242,7 +242,7 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1018109.0,10181.0,the Republic of Turkey,la République de Turquie,Turkey,Turquie,2.0,INACTIVE,INACTIF,1.0,Country,Pays,1923-01-01,2021-12-31,,,,,TR,TUR,792.0,2023-11-28
 1018110.0,10181.0,the Republic of Türkiye,la République de Türkiye,Türkiye,Türkiye,1.0,ACTIVE,ACTIF,1.0,Country,Pays,2022-01-01,2100-01-01,,,,,TR,TUR,792.0,2023-11-28
 1018210.0,10182.0,Greenland,Groenland (le),Greenland,Groenland (le),1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1900-01-01,2100-01-01,,,,,GL,GRL,304.0,2023-11-28
-1018310.0,10183.0,Falkland Islands,Falkland (les Îles)/Malouines (les Îles,Falkland Islands,Falkland (les Îles)/Malouines (les Îles,1.0,ACTIVE,ACTIF,6.0,Non-Self-Governing Territory,Territoire non autonome,1993-01-01,2100-01-01,,,,10135.0,FK,FLK,238.0,2023-11-28
+1018310.0,10183.0,Falkland Islands,Falkland (les Îles)/Malouines (les Îles,Falkland Islands,Falkland (les Îles)/Malouines (les Îles),1.0,ACTIVE,ACTIF,6.0,Non-Self-Governing Territory,Territoire non autonome,1993-01-01,2100-01-01,,,,10135.0,FK,FLK,238.0,2023-11-28
 1018410.0,10184.0,the Republic of Latvia,la République de Lettonie,Latvia,Lettonie,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1991-01-01,2100-01-01,,,,,LV,LVA,428.0,2023-11-28
 1018509.0,10185.0,People’s Republic of Angola,République populaire d’Angola,Angola,Angola,2.0,INACTIVE,INACTIF,1.0,Country,Pays,1975-01-01,1991-12-31,,,,,AO,AGO,24.0,2023-11-28
 1018510.0,10185.0,the Republic of Angola,la République d’Angola,Angola,Angola,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1992-01-01,2100-01-01,,,,,AO,AGO,24.0,2023-11-28
