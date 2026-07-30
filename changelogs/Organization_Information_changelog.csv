@@ -367,3 +367,7 @@ date,dataset,id,entity_name_en,entity_name_fr,event,field,old_value,new_value
 2026-06-16,Organization_Information,3423,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants,UPDATED,appellation_legale,,Directeur des terres destinées aux anciens combattants
 2026-06-16,Organization_Information,3423,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants,UPDATED,FAA_LGFP,4.0,
 2026-06-16,Organization_Information,3423,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants,UPDATED,status_statut,,a
+2026-07-30,Organization_Information,2270,Office of the Auditor General of Canada,Bureau du vérificateur général du Canada,UPDATED,FAA_LGFP,,1.1
+2026-07-30,Organization_Information,2281,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada,UPDATED,FAA_LGFP,,4.0
+2026-07-30,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,FAA_LGFP,,1.1
+2026-07-30,Organization_Information,3423,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants,UPDATED,FAA_LGFP,,4.0
