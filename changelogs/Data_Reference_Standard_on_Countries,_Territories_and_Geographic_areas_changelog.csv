@@ -2,3 +2,9 @@ date,dataset,id,event,field,old_value,new_value,entity_name_en,entity_name_fr
 2026-07-29,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1008310.0,UPDATED,GC_NM_AB_FR,Cocos (les Îles)/ Keeling (les Îles),Cocos (les Îles)/Keeling (les Îles),,
 2026-07-29,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1017410.0,UPDATED,GC_NM_AB_FR,îles Heard-et-MacDonald,Îles Heard-et-MacDonald,,
 2026-07-29,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1018310.0,UPDATED,GC_NM_AB_FR,Falkland (les Îles)/Malouines (les Îles,Falkland (les Îles)/Malouines (les Îles),,
+2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1000508.0,,,UPDATED,GC_NM_AB_FR,îles Gilbert et Ellice,Îles Gilbert et Ellice
+2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1000509.0,,,UPDATED,GC_NM_AB_FR,îles Gilbert,Îles Gilbert2
+2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1011409.0,,,UPDATED,GC_NM_OFF_FR,île Niue,Île Niue
+2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024910.0,,,UPDATED,STAT_DESC_EN,ACTIVE,INACTIVE
+2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024910.0,,,UPDATED,STAT_DESC_FR,ACTIF,INACTIF
+2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024911.0,,,ADDED,,,

@@ -3,8 +3,8 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1000210.0,10002.0,South Georgia and the South Sandwich Islands,Géorgie du Sud-et-les Îles Sandwich du Sud,South Georgia and the South Sandwich Islands,Géorgie du Sud-et-les Îles Sandwich du Sud,1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1993-01-01,2100-01-01,,,10183.0,10135.0,GS,SGS,239.0,2023-11-28
 1000310.0,10003.0,the People’s Republic of China,la République populaire de Chine,China,Chine,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1949-01-01,2100-01-01,,,,,CN,CHN,156.0,2023-11-28
 1000410.0,10004.0,the Republic of Slovenia,la République de Slovénie,Slovenia,Slovénie,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1991-01-01,2100-01-01,,,,,SI,SVN,705.0,2023-11-28
-1000508.0,10005.0,Gilbert and Ellice Islands,les îles Gilbert et Ellice,Gilbert and Ellice Islands,îles Gilbert et Ellice,2.0,INACTIVE,INACTIF,2.0,Territory,Territoire,1900-01-01,1975-12-31,,,,,KI,KIR,296.0,2023-11-28
-1000509.0,10005.0,Gilbert Islands,les îles Gilbert,Gilbert Islands,îles Gilbert,2.0,INACTIVE,INACTIF,2.0,Territory,Territoire,1976-01-01,1978-12-31,,,,,KI,KIR,296.0,2023-11-28
+1000508.0,10005.0,Gilbert and Ellice Islands,les îles Gilbert et Ellice,Gilbert and Ellice Islands,Îles Gilbert et Ellice,2.0,INACTIVE,INACTIF,2.0,Territory,Territoire,1900-01-01,1975-12-31,,,,,KI,KIR,296.0,2023-11-28
+1000509.0,10005.0,Gilbert Islands,les îles Gilbert,Gilbert Islands,Îles Gilbert2,2.0,INACTIVE,INACTIF,2.0,Territory,Territoire,1976-01-01,1978-12-31,,,,,KI,KIR,296.0,2023-11-28
 1000510.0,10005.0,the Republic of Kiribati,la République de Kiribati,Kiribati,Kiribati,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1979-01-01,2100-01-01,,,,,KI,KIR,296.0,2023-11-28
 1000610.0,10006.0,the French Republic,la République française,France,France,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1900-01-01,2100-01-01,,,,,FR,FRA,250.0,2023-11-28
 1000710.0,10007.0,the People’s Democratic Republic of Algeria,la République algérienne démocratique et populaire,Algeria,Algérie,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1962-01-01,2100-01-01,,,,,DZ,DZA,12.0,2023-11-28
@@ -154,7 +154,7 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1011110.0,10111.0,the Territory of American Samoa,Le territoire des Samoa américaines,American Samoa,Samoa américaines,1.0,ACTIVE,ACTIF,6.0,Non-Self-Governing Territory,Territoire non autonome,1900-01-01,2100-01-01,,,,10194.0,AS,ASM,16.0,2023-11-28
 1011210.0,10112.0,Antarctica,Antarctique (l’),Antarctica,Antarctique (l’),1.0,ACTIVE,ACTIF,3.0,Geographical Area,Région géographique,1900-01-01,2100-01-01,,,,,AQ,ATA,10.0,2023-11-28
 1011310.0,10113.0,the Republic of Korea,la République de Corée,Republic of Korea,République de Corée,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1953-01-01,2100-01-01,,,,,KR,KOR,410.0,2023-11-28
-1011409.0,10114.0,Niue Island,île Niue,Niue Island,Niue,2.0,INACTIVE,INACTIF,2.0,Territory,Territoire,1900-01-01,1973-12-31,,,,,NU,NIU,570.0,2023-11-28
+1011409.0,10114.0,Niue Island,Île Niue,Niue Island,Niue,2.0,INACTIVE,INACTIF,2.0,Territory,Territoire,1900-01-01,1973-12-31,,,,,NU,NIU,570.0,2023-11-28
 1011410.0,10114.0,Niue,Niue,Niue,Niue,1.0,ACTIVE,ACTIF,5.0,Special Cases,Cas spéciaux,1974-01-01,2100-01-01,,,,,NU,NIU,570.0,2024-03-27
 1011609.0,10116.0,the Kingdom of Siam,le Royaume de Siam,Siam,Siam,2.0,INACTIVE,INACTIF,1.0,Country,Pays,1900-01-01,1938-12-31,,,,,TH,THA,764.0,2023-11-28
 1011610.0,10116.0,the Kingdom of Thailand,le Royaume de Thaïlande,Thailand,Thaïlande,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1939-01-01,2100-01-01,,,,,TH,THA,764.0,2023-11-28
@@ -324,7 +324,8 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1024610.0,10246.0,the Kingdom of Norway,le Royaume de Norvège,Norway,Norvège,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1905-01-01,2100-01-01,,,,,NO,NOR,578.0,2023-11-28
 1024710.0,10247.0,the Dominican Republic,la République dominicaine,Dominican Republic,République dominicaine,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1900-01-01,2100-01-01,,,,,DO,DOM,214.0,2023-11-28
 1024810.0,10248.0,the Republic of Cyprus,la République de Chypre,Cyprus,Chypre,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1960-01-01,2100-01-01,,,,,CY,CYP,196.0,2023-11-28
-1024910.0,10249.0,the Republic of Nauru,la République de Nauru,Nauru,Nauru,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1968-01-01,2100-01-01,,,,,NR,NRU,520.0,2023-11-28
+1024910.0,10249.0,the Republic of Nauru,la République de Nauru,Nauru,Nauru,1.0,INACTIVE,INACTIF,1.0,Country,Pays,1968-01-01,2100-01-01,,,,,NR,NRU,520.0,2023-11-28
+1024911.0,10249.0,Republic of Naoero,République de Naoero,Naoero,Naoero,1.0,ACTIVE,ACTIF,1.0,Country,Pays,2026-05-13,2100-01-01,,,,,NR,NRU,520.0,2026-07-30
 1025010.0,10250.0,the Republic of South Sudan,la République du Soudan du Sud,South Sudan,Soudan du Sud,1.0,ACTIVE,ACTIF,1.0,Country,Pays,2011-01-01,2100-01-01,,,,,SS,SSD,728.0,2023-11-28
 1025110.0,10251.0,Martinique,Martinique,Martinique,Martinique,1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1900-01-01,2100-01-01,,,,10006.0,MQ,MTQ,474.0,2023-11-28
 1025210.0,10252.0,Cayman Islands,Caïmans (les Îles),Cayman Islands,Caïmans (les Îles),1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1962-01-01,2100-01-01,,,,10135.0,KY,CYM,136.0,2023-11-28
