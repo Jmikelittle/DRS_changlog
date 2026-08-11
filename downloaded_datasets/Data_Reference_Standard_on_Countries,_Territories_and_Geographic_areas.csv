@@ -325,7 +325,7 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1024710.0,10247.0,the Dominican Republic,la République dominicaine,Dominican Republic,République dominicaine,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1900-01-01,2100-01-01,,,,,DO,DOM,214.0,2023-11-28
 1024810.0,10248.0,the Republic of Cyprus,la République de Chypre,Cyprus,Chypre,1.0,ACTIVE,ACTIF,1.0,Country,Pays,1960-01-01,2100-01-01,,,,,CY,CYP,196.0,2023-11-28
 1024910.0,10249.0,the Republic of Nauru,la République de Nauru,Nauru,Nauru,1.0,INACTIVE,INACTIF,1.0,Country,Pays,1968-01-01,2100-01-01,,,,,NR,NRU,520.0,2023-11-28
-1024911.0,10249.0,Republic of Naoero,République de Naoero,Naoero,Naoero,1.0,ACTIVE,ACTIF,1.0,Country,Pays,2026-05-13,2100-01-01,,,,,NR,NRU,520.0,2026-07-30
+1024911.0,10249.0,Republic of Naoero,République de Naoero,Naoero,Naoero,1.0,ACTIVE,ACTIF,1.0,Country,Pays,2026-05-13,2100-01-01,,,,,NR,NRO,520.0,2026-07-30
 1025010.0,10250.0,the Republic of South Sudan,la République du Soudan du Sud,South Sudan,Soudan du Sud,1.0,ACTIVE,ACTIF,1.0,Country,Pays,2011-01-01,2100-01-01,,,,,SS,SSD,728.0,2023-11-28
 1025110.0,10251.0,Martinique,Martinique,Martinique,Martinique,1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1900-01-01,2100-01-01,,,,10006.0,MQ,MTQ,474.0,2023-11-28
 1025210.0,10252.0,Cayman Islands,Caïmans (les Îles),Cayman Islands,Caïmans (les Îles),1.0,ACTIVE,ACTIF,2.0,Territory,Territoire,1962-01-01,2100-01-01,,,,10135.0,KY,CYM,136.0,2023-11-28

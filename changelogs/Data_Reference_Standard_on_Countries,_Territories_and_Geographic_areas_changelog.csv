@@ -8,3 +8,4 @@ date,dataset,id,event,field,old_value,new_value,entity_name_en,entity_name_fr
 2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024910.0,,,UPDATED,STAT_DESC_EN,ACTIVE,INACTIVE
 2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024910.0,,,UPDATED,STAT_DESC_FR,ACTIF,INACTIF
 2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024911.0,,,ADDED,,,
+2026-08-11,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024911.0,,,UPDATED,ISO_ALPHA_3_CD,NRU,NRO
