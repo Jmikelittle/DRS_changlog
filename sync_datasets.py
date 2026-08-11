@@ -44,7 +44,8 @@ def get_entity_name_fields(df):
         ('harmonized_name', 'nom_harmonise'),
         ('legal_title', 'appellation_legale'),
         ('preferred_name', 'nom_prefere'),
-        ('nm_en', 'nm_fr')
+        ('nm_en', 'nm_fr'),
+        ('GC_NM_AB_EN', 'GC_NM_AB_FR')
     ]
     for en_field, fr_field in pairs:
         if en_field in df.columns and fr_field in df.columns:
