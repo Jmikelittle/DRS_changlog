@@ -17,6 +17,23 @@ def sanitize_filename(name):
         name += '.csv'
     return name
 
+def get_primary_key_field(df):
+    """
+    Determine which field is the primary key for a dataset.
+    Prioritize fields that end with '_id' or '_code', or are named 'id' or 'code'.
+    Falls back to the first column if no clear primary key is found.
+    """
+    # Check for common primary key patterns
+    for col in df.columns:
+        col_lower = col.lower()
+        if col_lower in ['id', 'code']:
+            return col
+        if col_lower.endswith('_id') or col_lower.endswith('_code'):
+            return col
+    
+    # Fall back to first column
+    return df.columns[0]
+
 def get_entity_name_fields(df):
     """
     Determine which fields contain the entity names for a dataset (EN and FR variants).
@@ -26,7 +43,8 @@ def get_entity_name_fields(df):
     pairs = [
         ('harmonized_name', 'nom_harmonise'),
         ('legal_title', 'appellation_legale'),
-        ('preferred_name', 'nom_prefere')
+        ('preferred_name', 'nom_prefere'),
+        ('nm_en', 'nm_fr')
     ]
     for en_field, fr_field in pairs:
         if en_field in df.columns and fr_field in df.columns:
@@ -183,27 +201,51 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
             # Determine the entity name fields for this dataset
             entity_name_fields = get_entity_name_fields(new_df)
             
+            # Determine the primary key field for this dataset
+            pk = get_primary_key_field(new_df)
+            
             # Check if old version exists
             changelog_entries = []
             if os.path.exists(filepath):
                 # Load old version for comparison
                 old_df = pd.read_csv(filepath).fillna("")
                 
+                # Normalize primary key values in both DataFrames
+                # Convert numeric IDs to int then string to avoid float decimals (1008310.0 vs 1008310)
+                def normalize_id(val):
+                    if pd.isna(val) or val == "":
+                        return ""
+                    try:
+                        # If it's numeric, convert to int to remove decimal, then to string
+                        return str(int(float(val)))
+                    except (ValueError, TypeError):
+                        # If not numeric, just convert to string
+                        return str(val)
+                
+                old_df[pk] = old_df[pk].apply(normalize_id)
+                new_df[pk] = new_df[pk].apply(normalize_id)
+                
                 # Compare datasets
-                pk = new_df.columns[0]
                 merged = old_df.merge(new_df, on=pk, suffixes=('_old', '_new'), how='outer', indicator=True)
                 
                 for _, row in merged.iterrows():
+                    # Convert ID to int if numeric, otherwise keep as string
+                    id_value = row[pk]
+                    try:
+                        id_str = str(int(float(id_value)))
+                    except (ValueError, TypeError):
+                        id_str = str(id_value)
+                    
                     entry = {
                         "date": timestamp,
                         "dataset": filename.replace('.csv', ''),
-                        "id": str(row[pk]),
-                        "entity_name_en": "",
-                        "entity_name_fr": "",
+                        "id": id_str,
                         "event": "",
                         "field": "",
                         "old_value": "",
-                        "new_value": ""
+                        "new_value": "",
+                        "entity_name_en": "",
+                        "entity_name_fr": ""
                     }
                     
                     if row['_merge'] == 'left_only':
