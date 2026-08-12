@@ -3,8 +3,8 @@ GC_HIST_ID,GC_ID,GC_NM_OFF_EN,GC_NM_OFF_FR,GC_NM_AB_EN,GC_NM_AB_FR,STAT_CD,STAT_
 1000210,10002,South Georgia and the South Sandwich Islands,Géorgie du Sud-et-les Îles Sandwich du Sud,South Georgia and the South Sandwich Islands,Géorgie du Sud-et-les Îles Sandwich du Sud,1,ACTIVE,ACTIF,2,Territory,Territoire,1993-01-01,2100-01-01,,,10183.0,10135.0,GS,SGS,239.0,2023-11-28
 1000310,10003,the People’s Republic of China,la République populaire de Chine,China,Chine,1,ACTIVE,ACTIF,1,Country,Pays,1949-01-01,2100-01-01,,,,,CN,CHN,156.0,2023-11-28
 1000410,10004,the Republic of Slovenia,la République de Slovénie,Slovenia,Slovénie,1,ACTIVE,ACTIF,1,Country,Pays,1991-01-01,2100-01-01,,,,,SI,SVN,705.0,2023-11-28
-1000508,10005,Gilbert and Ellice Islands,lesÎles Gilbert et Ellice,Gilbert and Ellice Islands,Îles Gilbert et Ellice,2,INACTIVE,INACTIF,2,Territory,Territoire,1900-01-01,1975-12-31,,,,,KI,KIR,296.0,2023-11-28
-1000509,10005,Gilbert Islands,les Îles Gilbert,Gilbert Islands,Îles Gilbert2,2,INACTIVE,INACTIF,2,Territory,Territoire,1976-01-01,1978-12-31,,,,,KI,KIR,296.0,2023-11-28
+1000508,10005,Gilbert and Ellice Islands,les îles Gilbert et Ellice,Gilbert and Ellice Islands,Îles Gilbert et Ellice,2,INACTIVE,INACTIF,2,Territory,Territoire,1900-01-01,1975-12-31,,,,,KI,KIR,296.0,2023-11-28
+1000509,10005,Gilbert Islands,les îles Gilbert,Gilbert Islands,Îles Gilbert2,2,INACTIVE,INACTIF,2,Territory,Territoire,1976-01-01,1978-12-31,,,,,KI,KIR,296.0,2023-11-28
 1000510,10005,the Republic of Kiribati,la République de Kiribati,Kiribati,Kiribati,1,ACTIVE,ACTIF,1,Country,Pays,1979-01-01,2100-01-01,,,,,KI,KIR,296.0,2023-11-28
 1000610,10006,the French Republic,la République française,France,France,1,ACTIVE,ACTIF,1,Country,Pays,1900-01-01,2100-01-01,,,,,FR,FRA,250.0,2023-11-28
 1000710,10007,the People’s Democratic Republic of Algeria,la République algérienne démocratique et populaire,Algeria,Algérie,1,ACTIVE,ACTIF,1,Country,Pays,1962-01-01,2100-01-01,,,,,DZ,DZA,12.0,2023-11-28

@@ -9,3 +9,5 @@ date,dataset,id,event,field,old_value,new_value,entity_name_en,entity_name_fr
 2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024910,UPDATED,STAT_DESC_FR,ACTIF,INACTIF,Nauru,Nauru
 2026-07-31,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024911,ADDED,,,,Naoero,Naoero
 2026-08-11,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1024911,UPDATED,ISO_ALPHA_3_CD,NRU,NRO,Naoero,Naoero
+2026-08-12,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1000508,UPDATED,GC_NM_OFF_FR,lesÎles Gilbert et Ellice,les îles Gilbert et Ellice,Gilbert and Ellice Islands,Îles Gilbert et Ellice
+2026-08-12,"Data_Reference_Standard_on_Countries,_Territories_and_Geographic_areas",1000509,UPDATED,GC_NM_OFF_FR,les Îles Gilbert,les îles Gilbert,Gilbert Islands,Îles Gilbert2
