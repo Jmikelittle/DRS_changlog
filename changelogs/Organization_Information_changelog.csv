@@ -371,3 +371,7 @@ date,dataset,id,entity_name_en,entity_name_fr,event,field,old_value,new_value
 2026-07-30,Organization_Information,2281,Office of the Information Commissioner of Canada,Commissariat à l'information au Canada,UPDATED,FAA_LGFP,,4.0
 2026-07-30,Organization_Information,2296,Leaders’ Debates Commission,Commission des débats des chefs,UPDATED,FAA_LGFP,,1.1
 2026-07-30,Organization_Information,3423,"The Director, The Veterans’ Land Act",Directeur des terres destinées aux anciens combattants,UPDATED,FAA_LGFP,,4.0
+2026-09-01,Organization_Information,3613,UPDATED,harmonized_name,Ship-source Oil Pollution Fund,Ship and Rail Compensation Canada,Ship and Rail Compensation Canada,Indemnisation Navire et Rail Canada
+2026-09-01,Organization_Information,3613,UPDATED,nom_harmonise,Caisse d'indemnisation des dommages dus à la pollution par les hydrocarbures causée par les navires,Indemnisation Navire et Rail Canada,Ship and Rail Compensation Canada,Indemnisation Navire et Rail Canada
+2026-09-01,Organization_Information,3613,UPDATED,legal_title,Ship-source Oil Pollution Fund,Ship and Rail Compensation Canada,Ship and Rail Compensation Canada,Indemnisation Navire et Rail Canada
+2026-09-01,Organization_Information,3613,UPDATED,appellation_legale,Caisse d'indemnisation des dommages dus à la pollution par les hydrocarbures causée par les navires,Indemnisation Navire et Rail Canada,Ship and Rail Compensation Canada,Indemnisation Navire et Rail Canada
