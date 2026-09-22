@@ -2,8 +2,48 @@ import os
 import re
 import requests
 import pandas as pd
+from decimal import Decimal, InvalidOperation
 from datetime import datetime
 from io import StringIO
+
+
+def normalize_change_value(value):
+    """
+    Normalize CSV values before comparison so insignificant formatting changes do not
+    generate noisy changelog entries.
+    """
+    if value is None:
+        return ""
+
+    normalized = str(value).strip()
+    if normalized.lower() in {"", "nan", "null", "none"}:
+        return ""
+    return normalized
+
+
+def is_insignificant_change(old_value, new_value):
+    """
+    Ignore insignificant formatting changes such as blank-to-zero and numeric values
+    that only differ by decimal display formatting.
+    """
+    old_value = normalize_change_value(old_value)
+    new_value = normalize_change_value(new_value)
+
+    if old_value == new_value:
+        return False
+
+    zero_values = {"0", "0.0", "0.00", "00", ".0", "-0", "-0.0"}
+    if (old_value == "" and new_value in zero_values) or (new_value == "" and old_value in zero_values):
+        return True
+
+    try:
+        old_num = Decimal(old_value)
+        new_num = Decimal(new_value)
+    except InvalidOperation:
+        return False
+
+    return old_num == new_num
+
 
 def sanitize_filename(name):
     """
@@ -275,6 +315,8 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                                 continue
                             old_val = str(row[old_col])
                             new_val = str(row[new_col])
+                            if is_insignificant_change(old_val, new_val):
+                                continue
                             if old_val != new_val:
                                 change_entry = entry.copy()
                                 change_entry["event"] = "UPDATED"
