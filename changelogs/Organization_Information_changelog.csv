@@ -375,3 +375,6 @@ date,dataset,id,entity_name_en,entity_name_fr,event,field,old_value,new_value
 2026-09-01,Organization_Information,3613,UPDATED,nom_harmonise,Caisse d'indemnisation des dommages dus à la pollution par les hydrocarbures causée par les navires,Indemnisation Navire et Rail Canada,Ship and Rail Compensation Canada,Indemnisation Navire et Rail Canada
 2026-09-01,Organization_Information,3613,UPDATED,legal_title,Ship-source Oil Pollution Fund,Ship and Rail Compensation Canada,Ship and Rail Compensation Canada,Indemnisation Navire et Rail Canada
 2026-09-01,Organization_Information,3613,UPDATED,appellation_legale,Caisse d'indemnisation des dommages dus à la pollution par les hydrocarbures causée par les navires,Indemnisation Navire et Rail Canada,Ship and Rail Compensation Canada,Indemnisation Navire et Rail Canada
+2026-09-26,Organization_Information,3533,UPDATED,lead_department,Fisheries and Oceans Canada,National Defence,Canadian Coast Guard,Garde côtière canadienne
+2026-09-26,Organization_Information,3533,UPDATED,ministere_responsable,Pêches et Océans Canada,Défense nationale,Canadian Coast Guard,Garde côtière canadienne
+2026-09-26,Organization_Information,3708,UPDATED,FAA_LGFP,,3.0,Build Canada Homes,Maisons Canada
