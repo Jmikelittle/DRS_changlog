@@ -169,6 +169,18 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(changelog_dir, exist_ok=True)
 
+    changelog_columns = [
+        "date",
+        "dataset",
+        "id",
+        "entity_name_en",
+        "entity_name_fr",
+        "event",
+        "field",
+        "old_value",
+        "new_value",
+    ]
+
     # Step 1: Parse README to find dataset links
     try:
         with open(readme_path, 'r', encoding='utf-8') as file:
@@ -332,6 +344,8 @@ def sync_and_track_datasets(readme_path="README.md", output_dir="downloaded_data
                 # Write changelog entries if any exist
                 if changelog_entries:
                     changelog_df = pd.DataFrame(changelog_entries)
+                    # Keep write order aligned with existing changelog headers.
+                    changelog_df = changelog_df.reindex(columns=changelog_columns)
                     if os.path.exists(changelog_path):
                         changelog_df.to_csv(changelog_path, mode='a', header=False, index=False)
                         print(f"  -> Found {len(changelog_entries)} change(s). Updated {os.path.basename(changelog_path)}")
